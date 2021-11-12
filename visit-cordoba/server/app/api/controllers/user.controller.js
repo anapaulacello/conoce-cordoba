@@ -1,0 +1,90 @@
+const User = require("../models/User.model");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
+const day=require("../models/day.model");
+const register = async (req, res, next) => {
+    try {
+        const newUser = new User();
+        newUser.name = req.body.name;
+        newUser.email = req.body.email;
+        newUser.password = req.body.password;
+
+        const userDb = await newUser.save();
+
+        return res.json({
+            status: 201,
+            message: HTTPSTATUSCODE[201],
+            data: userDb.name
+        });
+    } catch (error) {
+        return next(error);
+    }
+}
+
+const login = async (req, res, next) => {
+    try {
+        const userInfo = await User.findOne({ email: req.body.email });
+        if (bcrypt.compareSync(req.body.password, userInfo.password)) {
+            userInfo.password = null;
+            const token = jwt.sign(
+                {
+                    id: userInfo._id,
+                    name: userInfo.name
+                },
+
+                req.app.get("secretKey"), { expiresIn: "1h" }
+            );
+            return res.json({
+                status: 201,
+                message: HTTPSTATUSCODE[201],
+                data: { user: userInfo.name, token: token }
+            });
+        } else {
+            return res.json({
+                status: 401,
+                message: HTTPSTATUSCODE[401],
+                data: {}
+            })
+        }
+    } catch (error) {
+        return next(error);
+    }
+}
+
+const logout = (req, res, next) => {
+    try {
+        return res.json({
+            status: 201,
+            message: HTTPSTATUSCODE[201],
+            token: null
+        })
+    } catch (error) {
+        return next(error);
+    }
+}
+
+ const addDay= async(req,res,next)=>{
+    try{
+        const email= req.headers.email
+        const searchEmail=await User.findOne({email:email}).populate("itinerary")
+        if(searchEmail.itinerary.length==0){
+            if(req.body.type=="Restaurant"){
+               
+                const idRestaurants=req.body._id
+                console.log(typeof idRestaurants)
+                for (let index = 0; index < idRestaurants.length; index++)  {
+                   const user= await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:index}})
+                };
+                return res.json({
+                    status: 200,
+                    message: HTTPSTATUSCODE[200],
+                    data: { searchEmail: searchEmail }
+                })
+            }
+        }
+    }catch(err){
+        return next(err)
+    }
+}
+module.exports = { register, login, logout,addDay }; 
