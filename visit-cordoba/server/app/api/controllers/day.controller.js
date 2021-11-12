@@ -47,6 +47,35 @@ const getDayByDate = async (req, res, next) => {
     }
 }
 
-module.exports = { createDay, getAllDays, getDayByDate }
+const updateDay= async(req,res,next)=>{
+    try{
+        const date=req.body.date;
+        const dayDateId = await Day.find({date});
+        console.log(dayDateId)
+    }catch(err){
+        return next(err)
+    }
+}
+
+module.exports = { createDay, getAllDays, getDayByDate,updateDay }
 
 //TODO updateDay
+
+
+/* const email= req.headers.email
+const searchEmail=await User.findOne({email:email}).populate("itinerary")
+if(searchEmail.itinerary.length==0){
+    if(req.body.type=="Restaurant"){
+       
+        const idRestaurants=req.body._id
+        console.log(typeof idRestaurants)
+        for (let index = 0; index < idRestaurants.length; index++)  {
+           const user= await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:index}})
+        };
+        return res.json({
+            status: 200,
+            message: HTTPSTATUSCODE[200],
+            data: { searchEmail: searchEmail }
+        })
+    }
+} */

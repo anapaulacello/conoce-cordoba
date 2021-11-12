@@ -64,27 +64,5 @@ const logout = (req, res, next) => {
     }
 }
 
- const addDay= async(req,res,next)=>{
-    try{
-        const email= req.headers.email
-        const searchEmail=await User.findOne({email:email}).populate("itinerary")
-        if(searchEmail.itinerary.length==0){
-            if(req.body.type=="Restaurant"){
-               
-                const idRestaurants=req.body._id
-                console.log(typeof idRestaurants)
-                for (let index = 0; index < idRestaurants.length; index++)  {
-                   const user= await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:index}})
-                };
-                return res.json({
-                    status: 200,
-                    message: HTTPSTATUSCODE[200],
-                    data: { searchEmail: searchEmail }
-                })
-            }
-        }
-    }catch(err){
-        return next(err)
-    }
-}
-module.exports = { register, login, logout,addDay }; 
+
+module.exports = { register, login, logout }; 
