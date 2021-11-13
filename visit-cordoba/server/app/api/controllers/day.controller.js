@@ -53,6 +53,7 @@ const updateDay= async(req,res,next)=>{
     try{
         const date=req.body.date;
         const dayDate = await Day.findOne({date:date});
+        console.log(dayDate)
         if(dayDate){
             if(req.body.discos){
                 await Day.findOneAndUpdate({date:date},{$addToSet:{discos:req.body.discos}});
@@ -76,25 +77,21 @@ const updateDay= async(req,res,next)=>{
     }
 }
 
-module.exports = { createDay, getAllDays, getDayByDate,updateDay }
-
-//TODO updateDay
-
-
-/* const email= req.headers.email
-const searchEmail=await User.findOne({email:email}).populate("itinerary")
-if(searchEmail.itinerary.length==0){
-    if(req.body.type=="Restaurant"){
-       
-        const idRestaurants=req.body._id
-        console.log(typeof idRestaurants)
-        for (let index = 0; index < idRestaurants.length; index++)  {
-           const user= await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:index}})
-        };
+const deleteDay=async (req,res,next)=>{
+    try {
+        const {_id}=req.body;
+        await Day.deleteOne({_id:_id})
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
-            data: { searchEmail: searchEmail }
+            data: { Day: `${_id} borrado` }
         })
+    } catch (error) {
+        return next(error)
     }
-} */
+}
+module.exports = { createDay, getAllDays, getDayByDate,updateDay,deleteDay }
+
+
+
+
