@@ -38,12 +38,11 @@ const getAllDays = async (req, res, next) => {
 const getDayByDate = async (req, res, next) => {
     try {
         const { date } = req.params;
-        console.log(req.params)
-        const dayDateId = await Day.findOne({date:date}).populate("discos").populate("restaurants").populate("cultures");
+        const dayDate = await Day.findOne({date:date}).populate("discos").populate("restaurants").populate("cultures");
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
-            data: { Date: dayDateId }
+            data: { Date: dayDate }
         })
     } catch (error) {
         return next(error)
@@ -53,21 +52,24 @@ const getDayByDate = async (req, res, next) => {
 const updateDay= async(req,res,next)=>{
     try{
         const date=req.body.date;
-        const dayDateId = await Day.findOne({date:date});
-        if(dayDateId){
+        const dayDate = await Day.findOne({date:date});
+        if(dayDate){
             if(req.body.discos){
-                const day=await Day.findOneAndUpdate({date:date},{$addToSet:{discos:req.body.discos}});
-
+                await Day.findOneAndUpdate({date:date},{$addToSet:{discos:req.body.discos}});
             }
             if(req.body.restaurants){
-                console.log("tiene res")
+                await Day.findOneAndUpdate({date:date},{$addToSet:{restaurants:req.body.restaurants}});
             }
             if(req.body.cultures){
-                console.log("tiene cultur")
+                await Day.findOneAndUpdate({date:date},{$addToSet:{cultures:req.body.cultures}})
             }
-
+            return res.json({
+                status: 200,
+                message: HTTPSTATUSCODE[200],
+                data: { Date: `${dayDate.date} actualizado` }
+            })
         }else{
-            console.log("fuera")
+            createDay(req,res,next)
         }
     }catch(err){
         return next(err)
