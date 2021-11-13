@@ -1,4 +1,7 @@
 const Day = require("../models/day.model");
+const Restaurant= require("../models/restaurant.model")
+const Disco= require("../models/disco.model")
+
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
 
 const createDay = async (req, res, next) => {
@@ -36,7 +39,7 @@ const getDayByDate = async (req, res, next) => {
     try {
         const { date } = req.params;
         console.log(req.params)
-        const dayDateId = await Day.find({date});
+        const dayDateId = await Day.findOne({date:date}).populate("discos").populate("restaurants").populate("cultures");
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
@@ -50,8 +53,22 @@ const getDayByDate = async (req, res, next) => {
 const updateDay= async(req,res,next)=>{
     try{
         const date=req.body.date;
-        const dayDateId = await Day.find({date});
-        console.log(dayDateId)
+        const dayDateId = await Day.findOne({date:date});
+        if(dayDateId){
+            if(req.body.discos){
+                const day=await Day.findOneAndUpdate({date:date},{$addToSet:{discos:req.body.discos}});
+
+            }
+            if(req.body.restaurants){
+                console.log("tiene res")
+            }
+            if(req.body.cultures){
+                console.log("tiene cultur")
+            }
+
+        }else{
+            console.log("fuera")
+        }
     }catch(err){
         return next(err)
     }

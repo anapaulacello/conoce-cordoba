@@ -5,7 +5,7 @@ const {  createDay, getAllDays, getDayByDate,updateDay} = require("../controller
 router.post("/create", createDay);
 router.get("/", getAllDays);
 router.get("/:date",getDayByDate)
-router.put("/update/:date",updateDay)
+router.put("/update/",updateDay)
 
 
 module.exports = router;
