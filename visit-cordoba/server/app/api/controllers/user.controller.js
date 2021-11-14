@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
 const Day=require("../models/day.model");
+const {deleteDay}=require("./day.controller")
 const register = async (req, res, next) => {
     try {
         const newUser = new User();
@@ -105,6 +106,7 @@ const deleteDayFromUser= async(req, res,next)=>{
         const {email}=req.headers;
         const {_id}=req.body;
         await User.findOneAndUpdate({email:email},{$pull:{"itinerary":_id}}) 
+        deleteDay(req.body,res,next)
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
