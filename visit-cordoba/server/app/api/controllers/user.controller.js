@@ -2,7 +2,7 @@ const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
-const day=require("../models/day.model");
+const Day=require("../models/day.model");
 const register = async (req, res, next) => {
     try {
         const newUser = new User();
@@ -63,6 +63,55 @@ const logout = (req, res, next) => {
         return next(error);
     }
 }
+const getUserDays= async (req, res,next)=>{
+    try{
+        const userEmail=req.headers.email;
+        const days= await User.findOne({email:userEmail},{itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]})
+        // el res es solo de los dias nada mas
+        console.log(days)
+        return res.json({
+            status: 201,
+            message: HTTPSTATUSCODE[201],
+            data: { days : days }
+        });
 
+    }catch(err){
+        return next(err)
+    }
+}
+const addUserDay= async(req, res,next)=>{
+    try{
+        const userEmail=req.headers.email;
+        const day = new Day({
+            date:req.body.date,
+            discos:req.body.discos,
+            cultures:req.body.cultures,
+            restaurants:req.body.restaurants
+        })
+        await day.save()
+        await User.findOneAndUpdate({email:userEmail},{$addToSet:{itinerary:day}})
+        return res.json({
+            status: 201,
+            message: HTTPSTATUSCODE[201],
+            data: { day : day }
+        });
+    }catch(err){
+        return next(err)
+    }
+}
+const deleteUserDay= async(req, res,next)=>{
+    try{
 
-module.exports = { register, login, logout }; 
+    }catch(err){
+        return next(err)
+    }
+}
+
+const updateUserDay= async(req, res,next)=>{
+    try{
+
+    }catch(err){
+        return next(err)
+    }
+}
+module.exports = { register, login, logout, getUserDays ,addUserDay }; 
