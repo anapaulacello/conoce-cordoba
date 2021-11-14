@@ -63,12 +63,13 @@ const logout = (req, res, next) => {
         return next(error);
     }
 }
-const getUserDays= async (req, res,next)=>{
+const getDaysFromUser= async (req, res,next)=>{
     try{
-        const userEmail=req.headers.email;
-        const days= await User.findOne({email:userEmail},{itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]})
+        const {email}=req.headers;
+        /* console.log(email) */
+        const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]})
         // el res es solo de los dias nada mas
-        console.log(days)
+        console.log(days) 
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
@@ -79,9 +80,9 @@ const getUserDays= async (req, res,next)=>{
         return next(err)
     }
 }
-const addUserDay= async(req, res,next)=>{
+const addDayToUser= async(req, res,next)=>{
     try{
-        const userEmail=req.headers.email;
+        const {email}=req.headers;
         const day = new Day({
             date:req.body.date,
             discos:req.body.discos,
@@ -89,7 +90,7 @@ const addUserDay= async(req, res,next)=>{
             restaurants:req.body.restaurants
         })
         await day.save()
-        await User.findOneAndUpdate({email:userEmail},{$addToSet:{itinerary:day}})
+        await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:day}})
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
@@ -114,4 +115,4 @@ const updateUserDay= async(req, res,next)=>{
         return next(err)
     }
 }
-module.exports = { register, login, logout, getUserDays ,addUserDay }; 
+module.exports = { register, login, logout, getDaysFromUser ,deleteUserDay }; 
