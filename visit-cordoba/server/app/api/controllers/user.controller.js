@@ -104,10 +104,12 @@ const deleteDayFromUser= async(req, res,next)=>{
     try{
         const {email}=req.headers;
         const {_id}=req.body;
-        const {itinerary} =await User.findOne({email:email})
-        const newItinerary= itinerary.filter(element=>element!=_id)
-        console.log(newItinerary)
-        console.log( await User.findOneAndUpdate({email:email},{itinerary:newItinerary})) 
+        await User.findOneAndUpdate({email:email},{$pull:{"itinerary":_id}}) 
+        return res.json({
+            status: 200,
+            message: HTTPSTATUSCODE[200],
+            data: { Day: `${_id} borrado` }
+        })
     }catch(err){
         return next(err)
     }
