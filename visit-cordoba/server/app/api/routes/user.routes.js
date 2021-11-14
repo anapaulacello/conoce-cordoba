@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { register, login, logout, getDaysFromUser ,deleteUserDay } = require("../controllers/user.controller");
+const { register, login, logout,getDaysFromUser ,addDayToUser,deleteDayFromUser} = require("../controllers/user.controller");
 const { isAuth } = require("../../../middlewares/auth.middleware");
 
 
@@ -9,5 +9,7 @@ router.post("/login", login);
 router.post("/logout", [isAuth], logout);
 //itinerario
 router.get("/days",getDaysFromUser)
-router.post("/day/add",deleteUserDay)
+router.post("/day/add",addDayToUser)
+router.get("/day/delete",deleteDayFromUser)
+
 module.exports = router;

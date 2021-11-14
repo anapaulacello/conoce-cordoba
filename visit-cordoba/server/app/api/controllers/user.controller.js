@@ -66,10 +66,10 @@ const logout = (req, res, next) => {
 const getDaysFromUser= async (req, res,next)=>{
     try{
         const {email}=req.headers;
-        /* console.log(email) */
+        /* console.log(req.params)  */
         const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]})
         // el res es solo de los dias nada mas
-        console.log(days) 
+        /* console.log(days)  */
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
@@ -100,19 +100,24 @@ const addDayToUser= async(req, res,next)=>{
         return next(err)
     }
 }
-const deleteUserDay= async(req, res,next)=>{
+const deleteDayFromUser= async(req, res,next)=>{
+    try{
+        const {email}=req.headers;
+        const {_id}=req.body;
+        const {itinerary} =await User.findOne({email:email})
+        const newItinerary= itinerary.filter(element=>element!=_id)
+        console.log(newItinerary)
+        console.log( await User.findOneAndUpdate({email:email},{itinerary:newItinerary})) 
+    }catch(err){
+        return next(err)
+    }
+}
+
+const updateDayFromUser= async(req, res,next)=>{
     try{
 
     }catch(err){
         return next(err)
     }
 }
-
-const updateUserDay= async(req, res,next)=>{
-    try{
-
-    }catch(err){
-        return next(err)
-    }
-}
-module.exports = { register, login, logout, getDaysFromUser ,deleteUserDay }; 
+module.exports = { register, login, logout, getDaysFromUser ,addDayToUser, deleteDayFromUser}; 
