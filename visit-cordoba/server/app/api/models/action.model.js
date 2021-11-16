@@ -6,7 +6,7 @@ const ActionSchema = new Schema({
     image: { type: String, required: true },
     adress: { type: String, required: true },
     hour: { type: String, required: true },
-    actionEnum:{type:String,enum:["restaurant","disco","culture"]}
+    actionEnum:{type:String, enum:["restaurant","disco","culture"]}
 });
 
 const Action = mongoose.model("action", ActionSchema);
