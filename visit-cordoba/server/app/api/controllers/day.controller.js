@@ -6,6 +6,7 @@ const { findOneAndUpdate } = require("../models/day.model");
 
 const createDay = async (req, res, next) => {
     try {
+
         const newDay = new Day();
         newDay.date = req.body.date;
         newDay.actions = req.body.actions;
@@ -15,6 +16,7 @@ const createDay = async (req, res, next) => {
             message: HTTPSTATUSCODE[201],
             data: { Date: `${DayDb.date} creado`}
         })
+
     } catch (error) {
         return next(error);
     }
@@ -96,19 +98,37 @@ const getDaysFromUser= async (req, res,next)=>{
 const addDayToUser= async(req, res,next)=>{
     try{
         const {email}=req.headers;
-        const day = new Day({
-            date:req.body.date,
-            actions:req.body.actions
-            
+        const dayDate=await User.findOne({email:email},{itinerary:1,_id:0}).populate("itinerary")
+        console.log(dayDate)
+        let created=false;
+        dayDate.itinerary.map((element)=>{
+            if(element.date==req.body.date){
+                created=true;
+            }
         })
-        console.log(day);
-        await day.save()
-        await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:day}})
-        return res.json({
-            status: 201,
-            message: HTTPSTATUSCODE[201],
-            data: { day : day }
-        });
+        if(created){
+            return res.json({
+                status:500,
+                message:"esta fecha ya esta seleccionada"
+            })
+        }
+        else{
+            const day = new Day({
+                date:req.body.date,
+                actions:req.body.actions
+                
+            })
+            await day.save()
+            await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:day}})
+            
+            return res.json({
+                status: 201,
+                message: HTTPSTATUSCODE[201],
+                data: { day : day }
+            });
+        }
+
+        
     }catch(err){
         return next(err)
     }
