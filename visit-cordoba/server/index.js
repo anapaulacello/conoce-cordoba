@@ -4,11 +4,11 @@ const logger=require("morgan");
 
 const { connect } = require("./config/database");
 const HTTPSTATUSCODE = require("./utils/httpStatusCode");
-const culture = require("./app/api/routes/culture.routes")
-const disco=require("./app/api/routes/disco.routes")
-const restaurant=require("./app/api/routes/restaurant.routes")
+
+
+const action=require("./app/api/routes/action.routes");
 const user = require("./app/api/routes/user.routes");
-const day =require("./app/api/routes/day.routes")
+/* const day =require("./app/api/routes/day.routes") */
 
 connect();
 
@@ -33,11 +33,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger("dev"));
 
-app.use("/culture", culture);
-app.use("/disco", disco);
-app.use("/restaurant", restaurant);
+
+app.use("/action", action);
 app.use("/user", user);
-app.use("/day", day);
+/* app.use("/day", day); */
 app.use((req, res, next) => {
     let err = new Error();
     err.status = 404;

@@ -22,7 +22,7 @@ const createDay = async (req, res, next) => {
         return next(error);
     }
 }
-
+/* 
 const getAllDays = async (req, res, next) => {
     try {
         const day = await Day.find().populate("restaurants").populate("discos").populate("cultures");
@@ -39,7 +39,7 @@ const getAllDays = async (req, res, next) => {
 const getDayByDate = async (req, res, next) => {
     try {
         const { date } = req.params;
-        const dayDate = await Day.findOne({date:date}).populate("discos").populate("restaurants").populate("cultures");
+        const dayDate = await Day.findOne({date:date}).populate("action")
         console.log("esto es date")
         return res.json({
             status: 200,
@@ -134,8 +134,10 @@ const deleteDayFromUser= async(req, res,next)=>{
         return next(err)
     }
 }
-module.exports = { createDay, getAllDays, getDayByDate,updateDay,deleteDay,getDaysFromUser ,addDayToUser, deleteDayFromUser }
+*/
+module.exports = { createDay}
 
 
 
 
+ 

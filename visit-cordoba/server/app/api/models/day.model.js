@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 const DaySchema = new Schema({
     date: { type: String, required: true },
-    restaurants: [{ type: Schema.Types.ObjectId, ref: "restaurant"}],
-    discos: [{ type: Schema.Types.ObjectId, ref: "disco"}],
-    cultures: [{ type: Schema.Types.ObjectId, ref: "culture"}]
+    actions: [{ type: Schema.Types.ObjectId, ref: "action"}]
 });
 
 const Day = mongoose.model("day", DaySchema);

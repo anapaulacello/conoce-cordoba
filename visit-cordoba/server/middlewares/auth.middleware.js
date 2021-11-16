@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../utils/httpStatusCode");
+const{setError}=require("../utils/error.util")
 
-const isAuth = (req, res, next) => {
+const isAuth = async (req, res, next) => {
     const authorization = req.headers.authorization;
     if (!authorization) {
         return res.json({

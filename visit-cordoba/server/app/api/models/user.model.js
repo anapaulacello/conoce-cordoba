@@ -8,7 +8,7 @@ const UserSchema = new Schema({
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
-    itinerary: [{ type: Schema.Types.ObjectId, ref: "day"}]
+    itinerary: [{ type: Schema.Types.ObjectId, ref: "day", unique:true}]
 });
 
 UserSchema.pre("save", function (next) {

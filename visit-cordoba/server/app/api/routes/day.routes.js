@@ -1,4 +1,4 @@
-const express = require("express");
+/* const express = require("express");
 const router = express.Router();
 
 const {  createDay, getAllDays, getDayByDate,updateDay,deleteDay,getDaysFromUser ,addDayToUser,deleteDayFromUser} = require("../controllers/day.controller");
@@ -13,4 +13,4 @@ router.get("/user/days",getDaysFromUser)
 router.post("/user/day/add",addDayToUser)
 router.delete("/user/day/delete",deleteDayFromUser)
 
-module.exports = router;
+module.exports = router; */
