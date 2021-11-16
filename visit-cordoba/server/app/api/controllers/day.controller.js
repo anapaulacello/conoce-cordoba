@@ -2,7 +2,6 @@ const Day = require("../models/day.model");
 const User=require("../models/user.model")
 
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
-const { findOneAndUpdate } = require("../models/day.model");
 
 const createDay = async (req, res, next) => {
     try {
