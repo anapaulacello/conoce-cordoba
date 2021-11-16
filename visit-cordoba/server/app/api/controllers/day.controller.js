@@ -1,31 +1,29 @@
 const Day = require("../models/day.model");
-const Restaurant= require("../models/restaurant.model")
-const Disco= require("../models/disco.model")
 const User=require("../models/user.model")
 
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
 
 const createDay = async (req, res, next) => {
     try {
+
         const newDay = new Day();
         newDay.date = req.body.date;
-        newDay.restaurants = req.body.restaurants;
-        newDay.discos = req.body.discos;
-        newDay.cultures = req.body.cultures;
-        const DayDb = await newDay.save();
+        newDay.actions = req.body.actions;
+        const DayDb= await newDay.save();
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
-            data: { day: DayDb}
+            data: { Date: `${DayDb.date} creado`}
         })
+
     } catch (error) {
         return next(error);
     }
 }
-/* 
+
 const getAllDays = async (req, res, next) => {
     try {
-        const day = await Day.find().populate("restaurants").populate("discos").populate("cultures");
+        const day = await Day.find().populate("actions")
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
@@ -34,12 +32,12 @@ const getAllDays = async (req, res, next) => {
     } catch (error) {
         return next(error);
     }
-}
+} 
 
 const getDayByDate = async (req, res, next) => {
     try {
         const { date } = req.params;
-        const dayDate = await Day.findOne({date:date}).populate("action")
+        const dayDate = await Day.findOne({date:date}).populate("actions")
         console.log("esto es date")
         return res.json({
             status: 200,
@@ -54,19 +52,11 @@ const getDayByDate = async (req, res, next) => {
 const updateDay= async(req,res,next)=>{
     try{
         const {_id}=req.body;
-            if(req.body.discos){
-                await Day.findOneAndUpdate({_id:_id},{$addToSet:{discos:req.body.discos}});
-            }
-            if(req.body.restaurants){
-                await Day.findOneAndUpdate({_id:_id},{$addToSet:{restaurants:req.body.restaurants}});
-            }
-            if(req.body.cultures){
-                await Day.findOneAndUpdate({_id:_id},{$addToSet:{cultures:req.body.cultures}})
-            }
+        const date=await Day.findOneAndUpdate({_id:_id},{actions:req.body.actions, date:req.body.date})
             return res.json({
                 status: 200,
                 message: HTTPSTATUSCODE[200],
-                data: { Date: `${dayId.date} actualizado` }
+                data: { Date: `${date.date} actualizado` }
             })
     }catch(err){
         return next(err)
@@ -92,7 +82,7 @@ const deleteDay=async (req,res,next)=>{
 const getDaysFromUser= async (req, res,next)=>{
     try{
         const {email}=req.headers;
-        const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]})
+        const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary"})
         console.log(days)
         return res.json({
             status: 201,
@@ -107,19 +97,37 @@ const getDaysFromUser= async (req, res,next)=>{
 const addDayToUser= async(req, res,next)=>{
     try{
         const {email}=req.headers;
-        const day = new Day({
-            date:req.body.date,
-            discos:req.body.discos,
-            cultures:req.body.cultures,
-            restaurants:req.body.restaurants
+        const dayDate=await User.findOne({email:email},{itinerary:1,_id:0}).populate("itinerary")
+        console.log(dayDate)
+        let created=false;
+        dayDate.itinerary.map((element)=>{
+            if(element.date==req.body.date){
+                created=true;
+            }
         })
-        await day.save()
-        await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:day}})
-        return res.json({
-            status: 201,
-            message: HTTPSTATUSCODE[201],
-            data: { day : day }
-        });
+        if(created){
+            return res.json({
+                status:500,
+                message:"esta fecha ya esta seleccionada"
+            })
+        }
+        else{
+            const day = new Day({
+                date:req.body.date,
+                actions:req.body.actions
+                
+            })
+            await day.save()
+            await User.findOneAndUpdate({email:email},{$addToSet:{itinerary:day}})
+            
+            return res.json({
+                status: 201,
+                message: HTTPSTATUSCODE[201],
+                data: { day : day }
+            });
+        }
+
+        
     }catch(err){
         return next(err)
     }
@@ -134,8 +142,7 @@ const deleteDayFromUser= async(req, res,next)=>{
         return next(err)
     }
 }
-*/
-module.exports = { createDay}
+module.exports = { createDay,getAllDays,getDayByDate,deleteDay,updateDay,getDaysFromUser,addDayToUser,deleteDayFromUser}
 
 
 

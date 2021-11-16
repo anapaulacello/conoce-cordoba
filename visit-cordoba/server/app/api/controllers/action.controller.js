@@ -6,12 +6,7 @@ const createAction= async (req, res, next) => {
     try {
         const date = await Action.findOne(req.body.date);
 
-/*         if(req.body.date==date){
-            return res.json({
-                status:500,
-                message:"esta fecha ya esta seleccionada"
-            })
-        }else{ */
+
             const newAction = new Action ();
             newAction.name= req.body.name;
             newAction.image= req.body.image;
@@ -24,7 +19,7 @@ const createAction= async (req, res, next) => {
                 message: HTTPSTATUSCODE[201],
                 data: { action: ActionDb.name }
             })
-        //}
+        
 
 
     } catch (error) {
