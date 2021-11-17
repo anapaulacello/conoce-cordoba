@@ -1,0 +1,16 @@
+div{
+    position: relative;
+    text-align: center;  
+    align-items: center;  
+}
+.header_image{
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+h1{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+}

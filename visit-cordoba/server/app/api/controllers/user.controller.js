@@ -2,6 +2,8 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../../utils/httpStatusCode");
+const { setError } = require("../../../utils/error.util");
+
 
 const register = async (req, res, next) => {
     try {
@@ -10,6 +12,9 @@ const register = async (req, res, next) => {
         newUser.email = req.body.email;
         newUser.password = req.body.password;
 
+        const userExist=await User.findOne({email:newUser.email})
+        
+        if(userExist) return next(setError(400, 'this email already exist'))
         const userDb = await newUser.save();
 
         return res.json({
