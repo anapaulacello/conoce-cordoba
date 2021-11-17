@@ -6,7 +6,7 @@ import React from 'react'
  
 
  const Restaurant = () => {
-     const BASEURL="http://localhost:3000";
+     const BASEURL="https://backend-cordoba.vercel.app";
      const ITEMSURL="/action/name/restaurant";
      const [error,setError]=useState(null);
      const [isLoaded,setIsLoaded]=useState(false);
