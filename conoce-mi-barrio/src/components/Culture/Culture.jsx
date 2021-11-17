@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function Museum() {
+const Culture = () => {
+  const BASEURL = "http://localhost:3000";
+  const ITEMSURL = "/culture";
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios(BASEURL + ITEMSURL).then(
+      (res) => {
+        setItems(res.data.culture);
+        console.log(res.data.culture);
+        setIsLoaded(true);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    );
+  }, []);
+
+  /* if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
     return (
-        <div>
-            culture
-        </div>
-    )
-}
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.title}
+            <img src={item.image} alt={item.title} />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+};
 
-export default Museum
+export default Culture; */
