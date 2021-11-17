@@ -32,7 +32,8 @@ import React from 'react'
      }else{
          return(
             <ul>
-            {items.map((item)=>(
+            {items.map((item)=>( 
+                
               <li key={item._id}>
                <h3>{item.name}</h3>
                   <img src={item.image} alt={item.name}></img>
