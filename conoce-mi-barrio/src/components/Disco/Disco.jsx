@@ -1,4 +1,6 @@
 import React from 'react'
+import '../styles.css'
+import Header from '../Header/Header';
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
@@ -31,16 +33,19 @@ import React from 'react'
          return<div>Loading...</div>
      }else{
          return(
+             <>
+             <Header></Header>
             <ul>
             {items.map((item)=>(
               <li key={item._id}>
-               <h3>{item.name}</h3>
-                  <img src={item.image} alt={item.name}></img>
+                  <img className="image" src={item.image} alt={item.name}></img>
+                  <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
               </li>  
             ))}
         </ul>
+        </>
          );
      }
 
