@@ -4,6 +4,7 @@ import '../styles.css'
  import { useState, useEffect } from 'react';
  import axios from "axios"
 import Header from '../Header/Header';
+import Checkbox from '../Checkbox/Checkbox';
 
  
 
@@ -42,6 +43,7 @@ import Header from '../Header/Header';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <Checkbox></Checkbox>
               </li>  
             ))}
         </ul>
