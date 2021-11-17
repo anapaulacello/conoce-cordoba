@@ -5,6 +5,7 @@ import '../styles.css'
  import axios from "axios"
 import Header from '../Header/Header';
 import Spinner from '../Spinner/Spinner';
+import Checkbox from '../Checkbox/Checkbox';
 
  
 
@@ -43,6 +44,7 @@ import Spinner from '../Spinner/Spinner';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <Checkbox></Checkbox>
               </li>  
             ))}
         </ul>

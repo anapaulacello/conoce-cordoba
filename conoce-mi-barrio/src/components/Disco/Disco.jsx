@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Spinner from '../Spinner/Spinner';
 import DayChooser from '../DayChooser/DayChooser';
 import Button from '../Button/Button';
+ import Checkbox from '../Checkbox/Checkbox';
 
  
 
@@ -46,6 +47,7 @@ import Button from '../Button/Button';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <Checkbox></Checkbox>
               </li>  
             ))}
         </ul> 
