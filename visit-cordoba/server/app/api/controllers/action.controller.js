@@ -59,7 +59,7 @@ const getActionByName=async (req,res,next)=>{
     try {
         const {actionName}=req.params;
         console.log(req.params)
-        const actionByName=await Action.findOne({actionEnum:actionName})
+        const actionByName=await Action.find({actionEnum:actionName})
         return res.json({
             status: 200,
             message: HTTPSTATUSCODE[200],
