@@ -1,7 +1,7 @@
-import Restaurant from "./Restaurant/Restaurant"
-import Disco from "./Disco/Disco"
-import Culture from "./Culture/Culture"
-import Home from "./Home/Home"
-import About from "./About/About"
+import AutAuthRoute from "./AuthRoute/AuthRoute"
+import LoginForm from "./LoginForm/LoginForm"
+import RegisterForm from "./RegisterForm/RegisterForm"
 
-export {Restaurant, Disco, Culture, Home,About}
+//user
+
+export {AutAuthRoute,LoginForm,RegisterForm}
