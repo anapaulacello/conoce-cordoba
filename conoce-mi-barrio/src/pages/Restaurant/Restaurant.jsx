@@ -1,5 +1,6 @@
 import React from 'react'
- 
+import "../styles.css"
+import {AuthRoute,LoginForm,RegisterForm,Checkbox, DayChooser, Spinner, Button} from "../../components"
  import { useState, useEffect } from 'react';
  import axios from "axios"
 
@@ -28,7 +29,7 @@ import React from 'react'
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
             <>
@@ -42,6 +43,8 @@ import React from 'react'
               </li>  
             ))}
         </ul>
+        <DayChooser cl></DayChooser>
+        <Button></Button>
         </>
          );
      }
