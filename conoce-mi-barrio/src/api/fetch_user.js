@@ -46,3 +46,20 @@ export const registerUser = async (form) => {
   }
   return res;
 };
+
+export const logout = async() => {
+  const request = await fetch(LOGOUT_USER, {
+      method: "POST",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": '*',
+      },
+      credentials: "include",
+  });
+
+  const response = await request.json();
+
+  window.location.replace('/');
+  return response;
+};

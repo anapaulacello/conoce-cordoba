@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../../api/fetch_user";
 import "./RegisterForm.css";
+import { useHistory } from "react-router-dom";
 
 const INITIAL_STATE = {
   email: "",
@@ -8,6 +9,7 @@ const INITIAL_STATE = {
   password: ""
 };
 const RegisterForm = (props) => {
+  const history = useHistory();
   const [registerForm, setRegisterForm] = useState(INITIAL_STATE);
   const [error, setError] = useState(null);
 
@@ -19,7 +21,7 @@ const RegisterForm = (props) => {
       await registerUser(registerForm);
       setRegisterForm(INITIAL_STATE);
       setError("");
-      /* history.push("/login"); */
+      history.push("/about"); 
     } catch (error) {
       setError(error.message);
     }

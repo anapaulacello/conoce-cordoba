@@ -1,9 +1,14 @@
 import React, { useContext } from 'react'
 import {Link} from "react-router-dom"
+import { logout } from '../api/fetch_user';
 import { UserContext } from '../App'
 
 const Navigation = () => {
   const {user}=useContext(UserContext);
+  const logoutsesion =async()=>{
+    await logout()
+  }
+
     return (
         <>
         <Link to="/">
@@ -29,16 +34,11 @@ const Navigation = () => {
           <button>about</button>
         </Link>
         ):null}
-{/*         {user ?(
-          <Link to="/cultures">
-            <button>Culture</button>
-          </Link>
+        {user?(
+          <button onClick={logoutsesion}>logout</button>
         ):null}
-        {user ?(
-          <Link to="/discos">
-            <button>Disco</button>
-          </Link>
-        ):null} */}
+ 
+
         {user==null?(        
           <Link to="login">
             <button>login</button>
@@ -50,10 +50,6 @@ const Navigation = () => {
         </Link>
         ):null}
 
-{/*         <Link to="/about">
-          <button>About</button>
-        </Link>
-        ):null} */}
         </>
     )
 }

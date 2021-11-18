@@ -20,7 +20,7 @@ const LoginForm = () => {
 
       const userDB = await loginUser(form);
       saveUser(userDB.data.user);
-      history.push("/about");
+      history.push("/");
     } catch (error) {
       setError(error.message);
     }

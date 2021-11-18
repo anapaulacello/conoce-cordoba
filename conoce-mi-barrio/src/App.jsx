@@ -35,6 +35,16 @@ function App() {
               path="/restaurants"
               render={(props) => <Restaurant user={user} {...props} />} 
             ></AuthRoute> 
+              <AuthRoute
+              authenticated={authenticated}
+              path="/cultures"
+              render={(props) => <Culture user={user} {...props} />} 
+            ></AuthRoute>
+            <AuthRoute
+              authenticated={authenticated}
+              path="/discos"
+              render={(props) => <Disco user={user} {...props} />} 
+            ></AuthRoute> 
 {/*             <Route exact path="/restaurants" component={Restaurant} />
             <Route exact path="/cultures" component={Culture} />
             <Route exact path="/discos" component={Disco} /> */}
