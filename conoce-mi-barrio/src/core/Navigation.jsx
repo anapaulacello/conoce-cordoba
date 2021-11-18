@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from "react-router-dom"
+import { UserContext } from '../App'
+
 const Navigation = () => {
+  const {user}=useContext(UserContext);
     return (
         <>
         <Link to="/">
@@ -50,6 +53,7 @@ const Navigation = () => {
 {/*         <Link to="/about">
           <button>About</button>
         </Link>
+        ):null} */}
         </>
     )
 }

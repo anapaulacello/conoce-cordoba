@@ -1,8 +1,11 @@
 import './App.css';
-import React from "react";
+import React,{useState} from "react";
 import Navigation from './core/Navigation';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import {About, Culture, Disco, Home, Restaurant} from "./components"
+import {About, Culture, Disco, Home, Login, Register, Restaurant} from "./pages"
+import { AuthRoute } from './components';
+
+export const UserContext=React.createContext(null);
 
 function App() {
   const[user,setUser]=useState(null)
