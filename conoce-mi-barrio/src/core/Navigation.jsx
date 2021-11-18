@@ -34,14 +34,15 @@ const Navigation = () => {
           <button>about</button>
         </Link>
         ):null}
-        {user?(
-          <Link to="/about">
+          {user?(
+          <Link to="/profile">
           <button>Profile</button>
         </Link>
         ):null}
         {user?(
           <button onClick={logoutsesion}>logout</button>
         ):null}
+
  
 
         {user==null?(        
