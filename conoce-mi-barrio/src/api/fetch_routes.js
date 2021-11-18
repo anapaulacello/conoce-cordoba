@@ -1,4 +1,4 @@
-const BASE_URL=`http://localhost:3000`
+const BASE_URL=`https://backend-cordoba.vercel.app`
 const GET_RESTAURANTS=`${BASE_URL}/action/name/restaurant`
 const REGISTER_USER = `${BASE_URL}/user/register`;
 const LOGIN_USER = `${BASE_URL}/user/login`;

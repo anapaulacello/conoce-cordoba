@@ -5,7 +5,7 @@ import React from 'react'
 
  
 
- const Restaurant = () => {
+ const Culture = () => {
      const BASEURL="https://backend-cordoba.vercel.app";
      const ITEMSURL="/action/name/culture";
      const [error,setError]=useState(null);
@@ -46,4 +46,4 @@ import React from 'react'
 
  };
 
- export default Restaurant
+ export default Culture
