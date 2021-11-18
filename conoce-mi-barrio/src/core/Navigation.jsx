@@ -35,6 +35,11 @@ const Navigation = () => {
         </Link>
         ):null}
         {user?(
+          <Link to="/about">
+          <button>Profile</button>
+        </Link>
+        ):null}
+        {user?(
           <button onClick={logoutsesion}>logout</button>
         ):null}
  
