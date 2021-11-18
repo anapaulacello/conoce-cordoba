@@ -2,15 +2,13 @@ import React,{useContext, useState} from 'react'
 import {loginUser} from "../../api/fetch_user"
 import { UserContext } from '../../App'
 
-
-
 const LoginForm = () => {
     const{user,saveUser}=useContext(UserContext);
     const[error, setError]=useState('');
-    const navigate=useNavigate();
 
-    const submit= async ev=>{
+    const submitForm= async ev=>{
         ev.preventDefault();
+        setError("");
         try {
             const{email,password}=ev.target;
             const form={
@@ -19,22 +17,22 @@ const LoginForm = () => {
             }
 
             const userDB=await loginUser(form)
+            console.log(userDB.data.user)
             saveUser(userDB.data.user)
-            navigate("/")
-
         } catch (error) {
-            
+            console.log("Error -> Login", error);
+            setError(error.message);
         }
     }
 
     return (
         <div>
-            <form onSubmit={submiFrorm}>
+            <form onSubmit={submitForm}>
                 <input type="text" name="email" placeholder="e-mail"></input>
                 <input type="text" name="password"></input>
                 <button type="submit">login</button>
             </form>
-            {/* <p>{(!user? 'no hay usuario')}</p> */}
+            <p>{!user?"No hay usuario logueado":user.name}</p>
         </div>
     )
 }

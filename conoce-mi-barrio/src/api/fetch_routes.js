@@ -1,8 +1,8 @@
 const BASE_URL=`http://localhost:3000`
 const GET_RESTAURANTS=`${BASE_URL}/action/name/restaurant`
-const REGISTER_USER = `${BASE_URL}/users/register`;
-const LOGIN_USER = `${BASE_URL}/users/authenticate`;
-const LOGOUT_USER = `${BASE_URL}/users/logout`;
+const REGISTER_USER = `${BASE_URL}/user/register`;
+const LOGIN_USER = `${BASE_URL}/user/login`;
+const LOGOUT_USER = `${BASE_URL}/user/logout`;
 
 export {
     BASE_URL,
