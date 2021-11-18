@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { registerUser } from "../../api/fetch_user";
 import "./RegisterForm.css";
 
 const INITIAL_STATE = {
   email: "",
   name: "",
-  password: "",
-  emoji: "",
+  password: ""
 };
 const RegisterForm = (props) => {
-  const history = useHistory();
   const [registerForm, setRegisterForm] = useState(INITIAL_STATE);
   const [error, setError] = useState(null);
 
@@ -22,7 +19,7 @@ const RegisterForm = (props) => {
       await registerUser(registerForm);
       setRegisterForm(INITIAL_STATE);
       setError("");
-      history.push("/login");
+      /* history.push("/login"); */
     } catch (error) {
       setError(error.message);
     }
@@ -57,47 +54,6 @@ const RegisterForm = (props) => {
           onChange={handleInput}
           placeholder="Password"
         />
-        <label>Select your emoji</label>
-        <select
-          name="emoji"
-          className="user-form__select"
-          onChange={handleInput}
-          value={registerForm.emoji}
-        >
-          <option className="user-form__options" value="😃">
-            😃
-          </option>
-          <option className="user-form__options" value="👽">
-            👽
-          </option>
-          <option className="user-form__options" value="🤘">
-            🤘
-          </option>
-          <option className="user-form__options" value="😺">
-            😺
-          </option>
-          <option className="user-form__options" value="🐴">
-            🐴
-          </option>
-          <option className="user-form__options" value="💾">
-            💾
-          </option>
-          <option className="user-form__options" value="🎮">
-            🎮
-          </option>
-          <option className="user-form__options" value="🎹">
-            🎹
-          </option>
-          <option className="user-form__options" value="🍉">
-            🍉
-          </option>
-          <option className="user-form__options" value="🎠">
-            🎠
-          </option>
-          <option className="user-form__options" value="🌈">
-            🌈
-          </option>
-        </select>
         <button type="submit">Register</button>
         {error && <div style={{ color: "red" }}>{error}</div>}
       </form>
