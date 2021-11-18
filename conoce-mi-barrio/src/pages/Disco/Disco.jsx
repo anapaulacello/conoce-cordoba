@@ -2,6 +2,8 @@ import React from 'react'
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
+import { Button, DayChooser, Spinner } from '../../components';
+import CheckBox from '../../components/CheckBox';
 
  
 
@@ -28,7 +30,7 @@ import React from 'react'
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
              <>
@@ -39,9 +41,12 @@ import React from 'react'
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <CheckBox></CheckBox>
               </li>  
             ))}
         </ul>
+        <DayChooser></DayChooser>
+        <Button></Button>
         </>
          );
      }

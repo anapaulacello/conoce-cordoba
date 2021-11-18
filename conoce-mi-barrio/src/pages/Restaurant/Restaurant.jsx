@@ -45,7 +45,7 @@ import CheckBox from '../../components/CheckBox';
               </li>  
             ))}
         </ul>
-        <DayChooser cl></DayChooser>
+        <DayChooser></DayChooser>
         <Button></Button>
         </>
          );

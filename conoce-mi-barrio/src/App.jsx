@@ -11,6 +11,7 @@ function App() {
   const[user,setUser]=useState(null)
   const authenticated = user != null;
   console.log('estado del usuario',user)
+  
   const saveUser=(user)=>{
     setUser(user);
     
@@ -20,7 +21,7 @@ function App() {
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
         <Navigation></Navigation>
-        {user ? <p>Hola: {user.name}</p> : null}
+        {user ? <p>Hola: {user}</p> : null}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login}></Route>
