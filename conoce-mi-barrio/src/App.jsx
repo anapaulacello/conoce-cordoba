@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import Navigation from './core/Navigation';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import {About, Culture, Disco, Home, Restaurant} from "./components"
+import {About, Culture, Disco, Home, Restaurant} from "./pages"
 
 function App() {
   return (

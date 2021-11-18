@@ -1,7 +1,6 @@
-import Restaurant from "./Restaurant/Restaurant"
-import Disco from "./Disco/Disco"
-import Culture from "./Culture/Culture"
-import Home from "./Home/Home"
-import About from "./About/About"
+import Button from "./Button/Button"
+import Checkbox from "./Checkbox/Checkbox";
+import DayChooser from "./DayChooser/DayChooser";
+import Spinner from "./Spinner/Spinner"
 
-export {Restaurant, Disco, Culture, Home,About}
+export {Checkbox, DayChooser, Spinner, Button}
