@@ -1,9 +1,7 @@
 import React from 'react'
-import '../styles.css'
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
-import Header from '../Header/Header';
 
  
 
@@ -34,7 +32,6 @@ import Header from '../Header/Header';
      }else{
          return(
             <>
-            <Header></Header>
             <ul>
             {items.map((item)=>(
               <li key={item._id}>     
