@@ -42,4 +42,22 @@ p{
     color: #301618;
 }
 
+.header_container{
+    position: relative;
+    text-align: center;  
+    align-items: center;  
+    margin: 23px;
+}
+.header_image{
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+.header_title{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+}
+
 
