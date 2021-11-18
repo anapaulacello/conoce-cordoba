@@ -34,8 +34,8 @@ const Culture = () => {
         return (
             <>
                 <div className="header_container">
-                    <img className="header_image" src="" alt="" />
-                    <h1 className="header_title"></h1>
+                    <img className="header_image" src="https://paseandoporeuropa.com/wp-content/uploads/2017/06/tour-mezquita-catedral-de-cordoba-000.jpg" alt="" />
+                    <h1 className="header_title">CULTURA</h1>
                 </div>
                 <ul>
                     {items.map((item) => (
