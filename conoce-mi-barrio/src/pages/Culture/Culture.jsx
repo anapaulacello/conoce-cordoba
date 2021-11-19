@@ -1,21 +1,17 @@
 import React from 'react'
- 
- import { useState, useEffect } from 'react';
- import axios from "axios"
-import { Button, DayChooser, Spinner } from '../../components';
-import CheckBox from '../../components/CheckBox';
+import { useState, useEffect } from 'react';
+import axios from "axios"
+import {Spinner } from '../../components';
+import { GET_CULTURE } from '../../api/fetch_routes';
 
- 
 
- const Culture = () => {
-     const BASEURL="https://backend-cordoba.vercel.app";
-     const ITEMSURL="/action/name/culture";
+const Culture = () => {
      const [error,setError]=useState(null);
      const [isLoaded,setIsLoaded]=useState(false);
      const [items, setItems]=useState([]);
 
      useEffect (()=>{
-         axios(BASEURL+ITEMSURL).then(
+         axios(GET_CULTURE).then(
             (res)=>{
                 setItems(res.data.data.Action);
                 console.log(items)
@@ -41,17 +37,14 @@ import CheckBox from '../../components/CheckBox';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
-                  <CheckBox></CheckBox>
               </li>  
             
             ))}
         </ul>
-        <DayChooser></DayChooser>
-        <Button></Button>
         </>
          );
      }
 
  };
 
- export default Culture
+ export default {Culture}

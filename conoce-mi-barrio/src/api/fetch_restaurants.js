@@ -15,7 +15,7 @@ const tokenParsed = token.replaceAll('"','')
 console.log(tokenParsed)
 console.log('Bearer'+ ' ' + tokenParsed)
 
-
+  
 headers.Authorization = `Bearer ${tokenParsed}`
   
   const restaurants = await fetch(GET_RESTAURANTS, {
