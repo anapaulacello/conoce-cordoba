@@ -10,11 +10,11 @@ export const UserContext=React.createContext(null);
 function App() {
   const[user,setUser]=useState(null)
   const authenticated = user != null;
-  console.log('estado del usuario',user)
+  
   
   const saveUser=(user)=>{
     setUser(user);
-    
+    console.log('estado del usuario',user)
   }
   return (
     <div>

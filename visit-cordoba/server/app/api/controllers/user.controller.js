@@ -20,7 +20,7 @@ const register = async (req, res, next) => {
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
-            data: userDb.name
+            data: userDb
         });
     } catch (error) {
         return next(error);
