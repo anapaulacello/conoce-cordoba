@@ -5,7 +5,7 @@ const Profile = () => {
     const {user}= useContext(UserContext)
     return (
         <div>
-          {user ? <p>hola {user}</p> : null}
+          {user ? <p>Hola, {user}</p> : null}
             
         </div>
     )
