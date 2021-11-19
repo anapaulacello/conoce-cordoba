@@ -2,6 +2,7 @@ import React from 'react'
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
+import { Spinner } from '../../components';
 
  
 
@@ -28,7 +29,7 @@ import React from 'react'
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
              <>
