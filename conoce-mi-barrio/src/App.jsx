@@ -2,7 +2,7 @@ import './App.css';
 import React,{useState} from "react";
 import Navigation from './core/Navigation';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import {About, Culture, Disco, Home, Login, Register, Restaurant} from "./pages"
+import {About, Culture, Disco, Home, Login, Register, Restaurant, Profile} from "./pages"
 import { AuthRoute } from './components';
 
 export const UserContext=React.createContext(null);
@@ -21,7 +21,7 @@ function App() {
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
         <Navigation></Navigation>
-        {user ? <p>Hola: {user}</p> : null}
+  {/*       {user ? <p>Hola: {user}</p> : null} */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login}></Route>
@@ -46,6 +46,11 @@ function App() {
               path="/discos"
               render={(props) => <Disco user={user} {...props} />} 
             ></AuthRoute> 
+            <AuthRoute
+              authenticated={authenticated}
+              path="/profile"
+              render={(props) => <Profile user={user} {...props} />} 
+            ></AuthRoute>
 {/*             <Route exact path="/restaurants" component={Restaurant} />
             <Route exact path="/cultures" component={Culture} />
             <Route exact path="/discos" component={Disco} /> */}
