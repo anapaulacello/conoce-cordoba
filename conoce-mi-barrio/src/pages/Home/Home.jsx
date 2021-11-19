@@ -1,12 +1,23 @@
 import React from 'react'
-import CheckBox from '../../components/CheckBox'
+import "./Home.css"
+
+const svgVariants = {
+    hidden: { x: "-100px" },
+    show: {
+      x: "10px",
+      transition: {
+        delay: 1,
+        duration: 3,
+        ease: "easeInOut",
+      },
+    },
+  };
 
 function Home() {
     return (
-        <div>
-            home
-            <CheckBox></CheckBox>
-            <input type="date"></input>
+        <div className="home-container">
+            <h1 className="home-container_title">Conoce Córdoba.</h1>
+
         </div>
     )
 }
