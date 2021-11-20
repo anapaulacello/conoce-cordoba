@@ -22,6 +22,7 @@ export const loginUser = async (form) => {
   });
   const res = await loginFetch.json();
   localStorage.setItem("user", JSON.stringify(res.data.user));
+  localStorage.setItem("email", JSON.stringify(res.data.email));
   localStorage.setItem("token", JSON.stringify(res.data.token));
   if (!loginFetch.ok) {
     throw new Error("No se ha podido efectuar el login", res.message);

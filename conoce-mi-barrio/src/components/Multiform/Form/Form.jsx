@@ -28,7 +28,7 @@ const Form = ({ items, step }) => {
 
 
     const handleDateSelect=(date) =>{
-         setStartDate(date) 
+        setStartDate(date) 
         setState({ ...state, date });
         console.log(date)
     } 
@@ -37,7 +37,7 @@ const Form = ({ items, step }) => {
         const {value } = ev.target;
         setActions([value])
         setState({ ...state,  actions });
-        console.log(actions)
+        console.log(state)
     };
 
     return (
