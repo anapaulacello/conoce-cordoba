@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Form from './Form/Form';
 import Spinner from '../Spinner/Spinner';
-import DayChooser from '../DayChooser/DayChooser';
+/* import DayChooser from '../DayChooser/DayChooser'; */
 
 import "react-datepicker/dist/react-datepicker.css";
 const Multiform = () => {
@@ -56,7 +56,8 @@ const Multiform = () => {
         
         if (step === 0) {
             return (
-                <><DayChooser></DayChooser>
+                <>
+                    {/* <DayChooser></DayChooser> */}
                     <Form items={items} step={step}></Form>
                     <button onClick={changeStep}>Next Step</button>
                 </>

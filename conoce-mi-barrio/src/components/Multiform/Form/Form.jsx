@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { createDay } from '../../../api/fetch_day';
+import DayChooser from '../../DayChooser/DayChooser';
+
 const INITIAL_STATE = [];
 
 const Form = ({ items, step }) => {
@@ -31,6 +33,7 @@ const Form = ({ items, step }) => {
         <>
             <h1>PASO: {step}</h1>
             <form onSubmit={submitForm}>
+            <DayChooser></DayChooser>
                 <label>
                     {items[step].data.Action.map((item) => (
                         <div key={item._id}>
