@@ -7,6 +7,7 @@ const INITIAL_STATE = [];
 
 const Form = ({ items, step }) => {
     const [state, setState] = useState(INITIAL_STATE);
+    const [actions, setActions]=useState([]);
     const [error, setError] = useState(null);
     const [startDate, setStartDate] = useState(new Date());
 
@@ -27,21 +28,23 @@ const Form = ({ items, step }) => {
 
 
     const handleDateSelect=(date) =>{
-        /* setStartDate(date) */
+         setStartDate(date) 
         setState({ ...state, date });
-        console.log(startDate)
+        console.log(date)
     } 
 
     const handleInput = (ev) => {
-        const { name, value } = ev.target;
-        setState({ ...state, [name]: value });
+        const {value } = ev.target;
+        setActions([value])
+        setState({ ...state,  actions });
+        console.log(actions)
     };
 
     return (
         <>
             <h1>PASO: {step}</h1>
             <form onSubmit={submitForm}>
-            <DatePicker selected={startDate} onChange={handleDateSelect} value={handleDateSelect}/>
+            <DatePicker minDate={new Date()} selected={startDate} onChange={handleDateSelect} value={handleDateSelect}/>
                 <label>
                     {items[step].data.Action.map((item) => (
                         <div key={item._id}>
