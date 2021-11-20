@@ -43,7 +43,7 @@ const login = async (req, res, next) => {
             return res.json({
                 status: 201,
                 message: HTTPSTATUSCODE[201],
-                data: { user: userInfo.name, token: token }
+                data: { user: userInfo.name, token: token, email:userInfo.email }
             });
         } else {
             return res.json({
