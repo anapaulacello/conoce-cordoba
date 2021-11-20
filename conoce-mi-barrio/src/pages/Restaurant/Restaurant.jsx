@@ -1,9 +1,8 @@
 import React from 'react'
 import "../styles.css"
-import {AuthRoute,LoginForm,RegisterForm,Checkbox, DayChooser, Spinner, Button} from "../../components"
+import {Spinner} from "../../components"
  import { useState, useEffect } from 'react';
  import axios from "axios"
-import CheckBox from '../../components/CheckBox';
 
  
 
@@ -41,12 +40,9 @@ import CheckBox from '../../components/CheckBox';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
-                  <CheckBox></CheckBox>
               </li>  
             ))}
         </ul>
-        <DayChooser></DayChooser>
-        <Button></Button>
         </>
          );
      }

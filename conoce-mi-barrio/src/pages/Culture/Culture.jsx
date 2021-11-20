@@ -2,8 +2,7 @@ import React from 'react'
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
-import { Button, DayChooser, Spinner } from '../../components';
-import CheckBox from '../../components/CheckBox';
+import {Spinner } from '../../components';
 
  
 
@@ -41,14 +40,11 @@ import CheckBox from '../../components/CheckBox';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
-                  <CheckBox></CheckBox>
               </li>  
             
             ))}
-        </ul>
-        <DayChooser></DayChooser>
-        <Button></Button>
-        </>
+            </ul>
+            </>
          );
      }
 
