@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createDay } from '../../../api/fetch_day';
 import DatePicker from "react-datepicker";
 
-const INITIAL_STATE = [];
+const INITIAL_STATE = {date:"",actions:[]}
 
 const Form = ({ items, step }) => {
     const [state, setState] = useState(INITIAL_STATE);
@@ -32,19 +32,18 @@ const Form = ({ items, step }) => {
         setState({ ...state, date });
         console.log(date)
     } 
-
-    const handleInput = (ev) => {
-        const {value } = ev.target;
-        setActions([value])
-        setState({ ...state,  actions });
+     const handleInput = (ev) => {
+        const {value} = ev.target;        
+        setState({...state,actions:[...state.actions,value]});         
         console.log(state)
-    };
+    }; 
+
 
     return (
         <>
             <h1>PASO: {step}</h1>
             <form onSubmit={submitForm}>
-            <DatePicker minDate={new Date()} selected={startDate} onChange={handleDateSelect} value={handleDateSelect}/>
+             <DatePicker minDate={new Date()} selected={startDate} onChange={handleDateSelect} value={handleDateSelect}/> 
                 <label>
                     {items[step].data.Action.map((item) => (
                         <div key={item._id}>

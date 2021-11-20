@@ -1,6 +1,6 @@
 import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "./fetch_routes";
 
-let token = localStorage.getItem("token");
+
 let bearer = null;
 
 bearer = `bearer ${JSON.parse(localStorage.getItem("token"))}`;
