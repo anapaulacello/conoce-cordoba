@@ -1,7 +1,10 @@
-import Restaurant from "./Restaurant/Restaurant"
-import Disco from "./Disco/Disco"
-import Culture from "./Culture/Culture"
-import Home from "./Home/Home"
-import About from "./About/About"
+import Button from "./Button/Button"
+import Checkbox from "./Checkbox/Checkbox";
+import Spinner from "./Spinner/Spinner"
+import AuthRoute from "./AuthRoute/AuthRoute"
+import LoginForm from "./LoginForm/LoginForm"
+import RegisterForm from "./RegisterForm/RegisterForm"
 
-export {Restaurant, Disco, Culture, Home,About}
+//user
+
+export {AuthRoute,LoginForm,RegisterForm,Checkbox, Spinner, Button}

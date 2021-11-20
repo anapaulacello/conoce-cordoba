@@ -12,6 +12,7 @@ const headers = {
   Authorization: bearer,
 };
 
+
 export const loginUser = async (form) => {
   const loginFetch = await fetch(LOGIN_USER, {
     method: "POST",
@@ -44,4 +45,21 @@ export const registerUser = async (form) => {
     throw new Error("No se ha podido registrar el usuario", res.message);
   }
   return res;
+};
+
+export const logout = async() => {
+  const request = await fetch(LOGOUT_USER, {
+      method: "POST",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": '*',
+      },
+      credentials: "include",
+  });
+
+  const response = await request.json();
+
+  window.location.replace('/');
+  return response;
 };

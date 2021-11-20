@@ -1,5 +1,6 @@
 import React from 'react'
- 
+import "../styles.css"
+import {Spinner} from "../../components"
  import { useState, useEffect } from 'react';
  import axios from "axios"
 
@@ -28,19 +29,21 @@ import React from 'react'
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
+            <>
             <ul>
             {items.map((item)=>(
-              <li key={item._id}>
-               <h3>{item.name}</h3>
-                  <img src={item.image} alt={item.name}></img>
+              <li key={item._id}>     
+                  <img className="image" src={item.image} alt={item.name}></img>
+                  <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
               </li>  
             ))}
         </ul>
+        </>
          );
      }
 

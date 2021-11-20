@@ -17,7 +17,7 @@ const createAction= async (req, res, next) => {
             return res.json({
                 status: 201,
                 message: HTTPSTATUSCODE[201],
-                data: { action: ActionDb.name }
+                data: { action: ActionDb }
             })
         
 
