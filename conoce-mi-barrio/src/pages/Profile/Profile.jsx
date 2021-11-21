@@ -43,21 +43,21 @@ const Profile = () => {
     return (
         <div className="profile-container">
           {user ? <p>hola {user}</p> : null}
-            <ul>
-              <li>usuario: {user}</li>
-              <li>email: {user.email}</li>
-             
-            </ul>
+              <h3>usuario: {user}</h3>
+              <h3>email: {user.email}</h3>
               <div class="accordion accordion-flush" id="accordionFlushExample">
             {itinerary.map((element)=>(
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                   data-bs-target={`#a${element._id}`} 
-                  aria-expanded="false" aria-controls="flush-collapseOne" >
+                  aria-expanded="false" aria-controls="flush-collapseOne" 
+                  value={element._id}
+                  onClick={handleInput}
+                  >
                   {element.date}
-                  {/* <button onClick={deleteDay}>borrar</button> */}
                   </button>
+                  <button onClick={deleteDay}>borrar</button> 
                   
                 </h2>
                  {element.actions.map((action)=>(

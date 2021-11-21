@@ -26,13 +26,13 @@ function Home() {
           animate="show"
             >Conoce Córdoba.</motion.h1>
           {user==null?(        
-            <Link to="login">
+            <Link to="login" style={{"text-decoration":"none"}}>
               <a className="login">Login</a>
             </Link>
           ):null}
           {user==null?( 
-            <Link to="register">
-              <a className="register">Register</a>
+            <Link to="register" style={{"text-decoration":"none"}}>
+              <a className="register" >Register</a>
             </Link>
           ):null}
         </motion.div>
