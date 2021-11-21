@@ -1,20 +1,18 @@
 import React from 'react'
- 
- import { useState, useEffect } from 'react';
- import axios from "axios"
+import { useState, useEffect } from 'react';
+import axios from "axios"
 import {  Spinner } from '../../components';
+import { GET_DISCO } from '../../api/fetch_routes';
 
  
 
  const Disco = () => {
-     const BASEURL="https://backend-cordoba.vercel.app";
-     const ITEMSURL="/action/name/disco";
      const [error,setError]=useState(null);
      const [isLoaded,setIsLoaded]=useState(false);
      const [items, setItems]=useState([]);
 
      useEffect (()=>{
-         axios(BASEURL+ITEMSURL).then(
+         axios(GET_DISCO).then(
             (res)=>{
                 setItems(res.data.data.Action);
                 console.log(items)

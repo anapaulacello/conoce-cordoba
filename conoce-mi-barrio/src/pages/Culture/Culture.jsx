@@ -47,4 +47,4 @@ const Culture = () => {
 
  };
 
- export default {Culture}
+ export default Culture

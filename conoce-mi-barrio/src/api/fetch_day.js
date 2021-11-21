@@ -55,7 +55,7 @@ export const deleteDayFromUser =async(_id)=>{
       "Access-Control-Allow-Origin": "*",
       "email":email
     },
-    body:_id
+    body:JSON.stringify({"_id":_id})
 
   });
   const res = await deleteDayFetch.json();
