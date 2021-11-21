@@ -15,7 +15,7 @@ const Form = ({ items, step }) => {
         ev.preventDefault();
         setError("")
         console.log(JSON.stringify(state))
-        localStorage.setItem(`FormData`, JSON.stringify(state));
+        /* localStorage.setItem(`FormData`, JSON.stringify(state)); */
 
         try {
             await createDay(state);

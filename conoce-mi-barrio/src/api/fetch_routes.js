@@ -6,7 +6,8 @@ const REGISTER_USER = `${BASE_URL}/user/register`;
 const LOGIN_USER = `${BASE_URL}/user/login`;
 const LOGOUT_USER = `${BASE_URL}/user/logout`;
 
-const CREATE_DAY=`${BASE_URL}/day/create`;
+const CREATE_DAY=`https://backend-cordoba.vercel.app/day/user/day/add`;
+const GET_DAY_FROM_USER=`https://backend-cordoba.vercel.app/day/user/day/get`
 
 export {
     BASE_URL,
@@ -16,5 +17,6 @@ export {
     REGISTER_USER,
     LOGIN_USER,
     LOGOUT_USER,
-    CREATE_DAY
+    CREATE_DAY,
+    GET_DAY_FROM_USER
   };
