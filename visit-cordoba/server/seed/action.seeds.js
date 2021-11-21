@@ -9,6 +9,7 @@ const actions = [
         adress: "Plaza de la Ribera, 1, 14002, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=sojo%20ribera%20cordoba&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Hangar",
@@ -16,6 +17,7 @@ const actions = [
         adress: "Avenida de la Libertad, 2, 14006, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=hangar%20cordoba&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Bambú Club",
@@ -23,6 +25,7 @@ const actions = [
         adress: "Calle Conde de Robledo, 1, 14008, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=Bamb%C3%BA%20club&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Amazonica",
@@ -30,6 +33,7 @@ const actions = [
         adress: "Gta. Conde de Guadalhorce, 14008, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=amazonica%20cordoba&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Mercado Victoria",
@@ -37,6 +41,7 @@ const actions = [
         adress: "Plz de la Victoria, 14004, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=mercado%20victoria%20cordoba&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Long Rock",
@@ -44,6 +49,7 @@ const actions = [
         adress: "Calle Teniente Braulio Laportilla, 6, 14008, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=long%20rock&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Gran Cafe Gongora",
@@ -51,6 +57,7 @@ const actions = [
         adress: "Calle Gongora, 10, 14008, Cordoba",
         hour: "23:00 - 7:00",
         actionEnum: "disco",
+        googleAdress:"https://maps.google.com/maps?q=gran%20cafe%20gongora&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Museo Arqueologico",
@@ -58,6 +65,7 @@ const actions = [
         adress: "Plz de Jeronimo Paez 7, 14003, Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+        googleAdress:"https://maps.google.com/maps?q=plaza%20de%20jeronimo%20paez%207%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Palacio de Viana",
@@ -65,6 +73,7 @@ const actions = [
         adress: "Plz de don Gome, 2, 14001 Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+        googleAdress:"https://maps.google.com/maps?q=plaza%20de%20don%20gome%202%2014001&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Museo de Julio Romero",
@@ -72,6 +81,7 @@ const actions = [
         adress: "Plz del Potro, 1, 14002, Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+googleAdress:"https://maps.google.com/maps?q=plaza%20del%20potro%201%2014002&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Museo Taurino Municipal",
@@ -79,6 +89,7 @@ const actions = [
         adress: "Plz Maimonides, 3, 14004, Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+googleAdress:"https://maps.google.com/maps?q=plaza%20de%20maimonides%203%2014002&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Catedral - Mezquita",
@@ -86,6 +97,7 @@ const actions = [
         adress: "Calle Cardenal Herrero, 1, 14003, Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+googleAdress:"https://maps.google.com/maps?q=calle%20cardenal%20herrero%201%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: "Alcazar de los Reyes Cristianos",
@@ -93,6 +105,7 @@ const actions = [
         adress: "Plz Campo Santo de los Martires, 14004, Cordoba",
         hour: "10:00 - 14:00 / 16:30 - 18:30",
         actionEnum: "culture",
+        googleAdress:"https://maps.google.com/maps?q=plaza%20campo%20santo%20de%20los%20martires%2014004&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Casa pepe de la Judería',
@@ -100,6 +113,7 @@ const actions = [
         adress: ' C. Romero, 1, 14003 Córdoba',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20romero%201%2C%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'La Siesta María la Judía',
@@ -107,6 +121,7 @@ const actions = [
         adress: ' C Maria la Judía 6 ,14011 Córdoba',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20maria%20la%20judia%206%2C%2014011&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Taberna n10',
@@ -114,6 +129,7 @@ const actions = [
         adress: ' C. Romero, 10, 14003 Córdoba',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20romero%2010%2C%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed" 
     },
     {
         name: 'Taberna Góngora',
@@ -121,6 +137,7 @@ const actions = [
         adress: ' C. Conde de Torres Cabrera, 4, 14001.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20conde%20de%20torres%20cabrera%204%2014001&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Casa Antonio',
@@ -128,6 +145,7 @@ const actions = [
         adress: 'C. Alcalá Zamora, 17, 14006 Córdoba.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20alcala%20zamora%2017%2014006&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Taberna la Montillana',
@@ -135,6 +153,7 @@ const actions = [
         adress: 'C. San Álvaro, 5, 14003 Córdoba.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calla%20san%20alvaro%205%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Mesón los Lobos',
@@ -142,6 +161,7 @@ const actions = [
         adress: 'Plaza San Ignacio de Loyola, 4, 14008 Córdoba',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=plaza%20san%20ignacio%20de%20loyola%204%2014008&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'La cuchara de San Lorenzo',
@@ -149,6 +169,7 @@ const actions = [
         adress: 'Calle del, C. Arroyo de San Lorenzo, 2, 14002 Córdoba.  ',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20arroyo%20de%20san%20lorenzo%202%2014002&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Casa mia',
@@ -156,6 +177,7 @@ const actions = [
         adress: 'C. María la Judía, 16, 14011 Córdoba',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20maria%20la%20judia%2016%2014011&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'La despensa de la corredera',
@@ -163,6 +185,7 @@ const actions = [
         adress: 'Pl. de la Corredera, 2, 14002 Córdoba.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=plaza%20de%20la%20corredera%202%2014002&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'El churrasco',
@@ -170,6 +193,7 @@ const actions = [
         adress: 'C. Romero, 16, 14003 Córdoba.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=calle%20romero%2016%2014003&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
     {
         name: 'Recomiendo',
@@ -177,6 +201,7 @@ const actions = [
         adress: 'C. Mirto, 7, 14012 Córdoba.',
         hour: '13:00-16:30 / 20:00-00:00',
         actionEnum:'restaurant',
+        googleAdress:"https://maps.google.com/maps?q=Calle%20mirto%207%2014012&t=&z=13&ie=UTF8&iwloc=&output=embed"
     },
 ];
 

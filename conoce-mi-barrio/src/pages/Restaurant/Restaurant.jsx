@@ -41,7 +41,7 @@ import {Spinner} from "../../components"
                    <img max-width="668" max-height="445" src={item.image} class="d-block w-100" alt={item.name} className="image"/>
                    </div>
                    <div class="carousel-item">
-                   <iframe className="image" id="gmap_canvas" src="https://maps.google.com/maps?q=Casa%20pepe%20de%20la%20Juder%C3%ADa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                   <iframe className="image" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                    </div>
                </div>
                <button class="carousel-control-prev" type="button" data-bs-target={`#a${item._id}`} data-bs-slide="prev">
