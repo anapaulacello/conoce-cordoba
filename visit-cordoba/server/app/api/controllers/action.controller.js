@@ -17,7 +17,7 @@ const createAction= async (req, res, next) => {
             return res.json({
                 status: 201,
                 message: HTTPSTATUSCODE[201],
-                data: { action: ActionDb.name }
+                data: { action: ActionDb }
             })
         
 
@@ -55,10 +55,11 @@ const getActionById = async (req, res, next) => {
 }
 
 
+
+
 const getActionByName=async (req,res,next)=>{
     try {
         const {actionName}=req.params;
-        console.log(req.params)
         const actionByName=await Action.find({actionEnum:actionName})
         return res.json({
             status: 200,

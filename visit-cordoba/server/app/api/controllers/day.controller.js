@@ -13,7 +13,7 @@ const createDay = async (req, res, next) => {
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
-            data: { Date: `${DayDb.date} creado`}
+            data: { Date:DayDb}
         })
 
     } catch (error) {
@@ -79,11 +79,13 @@ const deleteDay=async (req,res,next)=>{
 
 //metodos relacionados con el usuario
 
+/* {itinerary:1,_id:0}).populate({path:"itinerary",populate:[{path:"discos"},{path:"restaurants"},{path:"cultures"}]}) */
+
 const getDaysFromUser= async (req, res,next)=>{
     try{
         const {email}=req.headers;
-        const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary"})
-        console.log(days)
+        const days= await User.findOne({email:email},{itinerary:1,_id:0}).populate({path:"itinerary",populate:{path:"actions"}})
+        console.log(email)
         return res.json({
             status: 201,
             message: HTTPSTATUSCODE[201],
@@ -98,7 +100,7 @@ const addDayToUser= async(req, res,next)=>{
     try{
         const {email}=req.headers;
         const dayDate=await User.findOne({email:email},{itinerary:1,_id:0}).populate("itinerary")
-        console.log(dayDate)
+        console.log(email)
         let created=false;
         dayDate.itinerary.map((element)=>{
             if(element.date==req.body.date){
@@ -123,7 +125,7 @@ const addDayToUser= async(req, res,next)=>{
             return res.json({
                 status: 201,
                 message: HTTPSTATUSCODE[201],
-                data: { day : day }
+                data: { day : day , email:email}
             });
         }
 

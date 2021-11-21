@@ -34,6 +34,11 @@ const Navigation = () => {
           <button>about</button>
         </Link>
         ):null}
+        {user?(
+          <Link to="/multiform">
+          <button>multiform</button>
+        </Link>
+        ):null}
           {user?(
           <Link to="/profile">
           <button>Profile</button>

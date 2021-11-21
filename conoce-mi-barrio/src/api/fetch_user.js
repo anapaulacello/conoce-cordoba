@@ -1,6 +1,6 @@
 import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "./fetch_routes";
 
-let token = localStorage.getItem("token");
+
 let bearer = null;
 
 bearer = `bearer ${JSON.parse(localStorage.getItem("token"))}`;
@@ -22,6 +22,7 @@ export const loginUser = async (form) => {
   });
   const res = await loginFetch.json();
   localStorage.setItem("user", JSON.stringify(res.data.user));
+  localStorage.setItem("email",res.data.email);
   localStorage.setItem("token", JSON.stringify(res.data.token));
   if (!loginFetch.ok) {
     throw new Error("No se ha podido efectuar el login", res.message);

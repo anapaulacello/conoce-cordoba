@@ -4,17 +4,18 @@ import Navigation from './core/Navigation';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import {About, Culture, Disco, Home, Login, Register, Restaurant, Profile} from "./pages"
 import { AuthRoute } from './components';
+import Multiform from './components/Multiform/Multiform';
 
 export const UserContext=React.createContext(null);
 
 function App() {
   const[user,setUser]=useState(null)
   const authenticated = user != null;
-  console.log('estado del usuario',user)
+  
   
   const saveUser=(user)=>{
     setUser(user);
-    
+    console.log('estado del usuario',user)
   }
   return (
     <div>
@@ -50,6 +51,11 @@ function App() {
               authenticated={authenticated}
               path="/profile"
               render={(props) => <Profile user={user} {...props} />} 
+            ></AuthRoute>
+            <AuthRoute
+              authenticated={authenticated}
+              path="/multiform"
+              render={(props) => <Multiform user={user} {...props} />} 
             ></AuthRoute>
 {/*             <Route exact path="/restaurants" component={Restaurant} />
             <Route exact path="/cultures" component={Culture} />
