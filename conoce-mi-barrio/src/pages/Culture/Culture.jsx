@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios"
 import {Spinner } from '../../components';
 import { GET_CULTURE } from '../../api/fetch_routes';
-
+import "../styles.css"
 
 const Culture = () => {
      const [error,setError]=useState(null);
@@ -32,13 +32,27 @@ const Culture = () => {
              <>
             <ul>
             {items.map((item)=>(
-              <li key={item._id}>
-                  <img className="image" src={item.image} alt={item.name}></img>
-                  <h3>{item.name}</h3>
-                  <p>{item.adress}</p>
-                  <p>Horario:{item.hour}</p>
-              </li>  
-            
+            <div key={item._id} id={`a${item._id}`} class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner" >
+                    <div class="carousel-item" max-width="390">
+                    <img max-width="668" max-height="445" src={item.image} className="image" alt={item.name}/>
+                    </div>
+                    <div class="carousel-item">
+                    <iframe className="image"  id="gmap_canvas" src="https://maps.google.com/maps?q=Casa%20pepe%20de%20la%20Juder%C3%ADa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target={`#a${item._id}`} data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target={`#a${item._id}`} data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <h3>{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
+            </div>
             ))}
         </ul>
         </>

@@ -9,8 +9,7 @@
     max-width: 60%;
     margin: 0;
     font-size: 70px;
-    padding-top: 30vh;
-    margin-bottom:20px ;
+    padding: 30vh 20px 30px;
 }
 
 .login,
@@ -28,6 +27,7 @@
     background-color: white;
     color:#330d00;
     font-weight: 700;
+    margin-left: 30px;
 }
 .login:hover{
     background-color: transparent;

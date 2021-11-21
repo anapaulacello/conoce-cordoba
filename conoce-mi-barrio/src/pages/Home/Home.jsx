@@ -9,8 +9,8 @@ const svgVariants = {
   show: {
     x: "10px",
     transition: {
-      delay: 1,
-      duration: 3,
+      delay: 0.5,
+      duration: 1,
       ease: "easeOut",
     },
   },
