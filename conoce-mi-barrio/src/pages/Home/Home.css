@@ -6,6 +6,7 @@
 }
 .home-container_title{
     color:white;
-    text-align: center;
-    font-size: 100px;
+    max-width: 60%;
+    margin: 0;
+    font-size: 70px;
 }
