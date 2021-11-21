@@ -10,3 +10,32 @@
     margin: 0;
     font-size: 70px;
 }
+
+.login,
+.register{
+    text-decoration: none;
+    margin: 10px;
+    border: 2px solid #fff;
+    padding: 6px 20px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    font-size: larger;
+}
+
+.login{
+    background-color: white;
+    color:#330d00;
+    font-weight: 700;
+}
+.login:hover{
+    background-color: transparent;
+    color: white;
+    border: 2px  solid white;
+    transition: 0.2s ease-out;
+}
+
+.register,
+.register:hover{
+    color: white;
+}
+

@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { Link } from 'react-router-dom';
 import "./Home.css"
 import {motion} from "framer-motion"
+import { UserContext } from '../../App';
 
 const svgVariants = {
   hidden: { x: "-100vw" },
@@ -15,6 +17,7 @@ const svgVariants = {
 };
 
 function Home() {
+  const {user}=useContext(UserContext);
     return (
         <motion.div className="home-container">
             <motion.h1 className="home-container_title"
@@ -22,7 +25,16 @@ function Home() {
           initial="hidden"
           animate="show"
             >Conoce Córdoba.</motion.h1>
-
+          {user==null?(        
+            <Link to="login">
+              <a className="login">Login</a>
+            </Link>
+          ):null}
+          {user==null?( 
+            <Link to="register">
+              <a className="register">Register</a>
+            </Link>
+          ):null}
         </motion.div>
     )
 }

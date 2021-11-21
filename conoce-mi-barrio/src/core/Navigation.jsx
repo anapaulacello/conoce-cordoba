@@ -11,9 +11,11 @@ const Navigation = () => {
 
     return (
         <>
+        {user?(
         <Link to="/">
           <button>Home</button>
         </Link>
+        ):null}
         {user?(
           <Link to="/restaurants">
           <button>restaurants</button>
@@ -46,19 +48,6 @@ const Navigation = () => {
         ):null}
         {user?(
           <button onClick={logoutsesion}>logout</button>
-        ):null}
-
- 
-
-        {user==null?(        
-          <Link to="login">
-            <button>login</button>
-          </Link>
-        ):null}
-        {user==null?( 
-          <Link to="register">
-          <button>register</button>
-        </Link>
         ):null}
 
         </>
