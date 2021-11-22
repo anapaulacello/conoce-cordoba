@@ -19,55 +19,53 @@ const Navigation = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-        {user?(
+      {user?(
         <Link to="/">
-          <button>Home</button>
+        <a class="nav-link active" aria-current="page" >Home</a>
         </Link>
         ):null}
         {user?(
           <Link to="/restaurants">
-          <button>restaurants</button>
+          <a class="nav-link" >Restaurants</a>
         </Link>
         ):null}
         {user?(
           <Link to="/cultures">
-          <button>cultures</button>
+          <a class="nav-link" >Culture</a>
         </Link>
         ):null}
         {user?(
           <Link to="/discos">
-          <button>discos</button>
+          <a class="nav-link" >Discos</a>
         </Link>
         ):null}
         {user?(
           <Link to="/about">
-          <button>about</button>
+          <a class="nav-link" >About</a>
         </Link>
         ):null}
         {user?(
           <Link to="/multiform">
-          <button>multiform</button>
+          <a class="nav-link" >Make your day</a>
         </Link>
         ):null}
           {user?(
           <Link to="/profile">
-          <button>Profile</button>
+          <a class="nav-link" >Profile</a>
         </Link>
         ):null}
         {user?(
-          <button onClick={logoutsesion}>logout</button>
+          <a class="nav-link" onClick={logoutsesion}>Logout</a>
         ):null}
+
+      </div>
+    </div>
+  </div>
+</nav>
         </>
     )
 }
 
 export default Navigation
+
+{/* <button onClick={logoutsesion}>logout</button> */}

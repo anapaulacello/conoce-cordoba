@@ -21,7 +21,10 @@ function App() {
     <div>
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
+      {user?(
         <Navigation></Navigation>
+        ):null}
+        
   {/*       {user ? <p>Hola: {user}</p> : null} */}
           <Switch>
             <Route exact path="/" component={Home} />

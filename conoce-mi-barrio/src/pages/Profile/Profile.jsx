@@ -28,11 +28,8 @@ const Profile = () => {
     return (
         <div className="profile-container">
           {user ? <p>hola {user}</p> : null}
-            <ul>
-              <li>usuario: {user}</li>
-              <li>email: {user.email}</li>
-
-            </ul>
+              <h3>usuario: {user}</h3>
+              <h3>email: {user.email}</h3>
               <div class="accordion accordion-flush" id="accordionFlushExample">
             {itinerary.map((element)=>(
               <div class="accordion-item">
@@ -41,8 +38,9 @@ const Profile = () => {
                   data-bs-target={`#a${element._id}`} 
                   aria-expanded="false" aria-controls="flush-collapseOne" >
                   {element.date}
+                  <a onClick={()=>{deleteDay(element._id)}}>🗑️</a>
                   </button>
-                  <button onClick={()=>{deleteDay(element._id)}}>borrar</button>
+                  
                 </h2>
                  {element.actions.map((action)=>(
                   <div id={`a${element._id}`} class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
