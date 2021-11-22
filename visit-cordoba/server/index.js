@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-    origin: ['http://localhost:3000','http://localhost:3001','https://conoce-cordoba.vercel.app/login'],
+    origin: ['http://localhost:3000','http://localhost:3001','https://conoce-cordoba.vercel.app'],
     credentials: true,
 }));
 
