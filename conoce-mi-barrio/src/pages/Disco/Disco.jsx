@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios"
 import {  Spinner } from '../../components';
 import { GET_DISCO } from '../../api/fetch_routes';
-
+import Slider from 'infinite-react-carousel';
  
 
  const Disco = () => {
@@ -31,16 +31,21 @@ import { GET_DISCO } from '../../api/fetch_routes';
      }else{
         return(
             <>
-           <ul>
-                    {items.map((item)=>(
+                {items.map((item)=>(
                 <div key={item._id} id={`a${item._id}`} >
+                <div className="container">
+                    <section className='slider'>
+                        <Slider className='slider__content'>
                         <img src={item.image} alt={item.name}/>
-                    <h3>{item.name}</h3>
-                    <p>{item.adress}</p>
-                    <p>Horario:{item.hour}</p>
+                            <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </Slider>
+                    </section>
+                </div>
+                <h3>{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
                 </div>
                 ))}
-                </ul>
        </>
         );
      }

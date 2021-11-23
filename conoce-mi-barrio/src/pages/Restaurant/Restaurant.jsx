@@ -4,7 +4,7 @@ import {Spinner} from "../../components"
  import { useState, useEffect } from 'react';
  import axios from "axios"
  import Slider from 'infinite-react-carousel';
- 
+ import "./Slider.css"
 
  const Restaurant = () => {
      const BASEURL="https://backend-cordoba.vercel.app";
@@ -33,16 +33,30 @@ import {Spinner} from "../../components"
      }else{
         return(
             <>
-                <ul>
-                    {items.map((item)=>(
+                {items.map((item)=>(
                 <div key={item._id} id={`a${item._id}`} >
+                <div className="container">
+                    <section className='slider'>
+                        <Slider className='slider__content'>
                         <img src={item.image} alt={item.name}/>
-                    <h3>{item.name}</h3>
-                    <p>{item.adress}</p>
-                    <p>Horario:{item.hour}</p>
+                            <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </Slider>
+                    </section>
+                </div>
+                <h3>{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
                 </div>
                 ))}
-                </ul>
+{/*         <div className="container">
+            <section className='slider'>
+                <Slider className='slider__content'>
+                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mejores-series-anime-netflix-fotogramas-1627561159.jpg"></img>
+                    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Casa%20pepe%20de%20la%20Juder%C3%ADa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </Slider>
+            </section>
+        </div> */}
+
        </>
         );
      }
