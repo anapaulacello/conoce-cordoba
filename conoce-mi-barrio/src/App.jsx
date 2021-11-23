@@ -1,10 +1,11 @@
 import './App.css';
 import React,{useState} from "react";
-import Navigation from './core/Navigation';
+import Navbar from "./core/Nav/Navbar"
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import {About, Culture, Disco, Home, Login, Register, Restaurant, Profile} from "./pages"
 import { AuthRoute } from './components';
 import Multiform from './components/Multiform/Multiform';
+import Navigation from './core/Navigation';
 
 export const UserContext=React.createContext(null);
 
@@ -22,7 +23,7 @@ function App() {
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
       {user?(
-        <Navigation></Navigation>
+        <Navbar></Navbar>
         ):null}
         
   {/*       {user ? <p>Hola: {user}</p> : null} */}
