@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom';
 import "./Home.css"
-import {motion} from "framer-motion"
+import {motion} from 'framer-motion';
 import { UserContext } from '../../App';
 
 const svgVariants = {
@@ -17,7 +17,7 @@ const svgVariants = {
 };
 
 function Home() {
-  const {user}=useContext(UserContext);
+const {user}=useContext(UserContext);
     return (
         <motion.div className="home-container">
             <motion.h1 className="home-container_title"

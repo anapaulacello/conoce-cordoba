@@ -1,66 +1,52 @@
 import React from 'react'
-import "../styles.css"
-import {Spinner} from "../../components"
- import { useState, useEffect } from 'react';
- import axios from "axios"
- import Slider from 'infinite-react-carousel';
- import "./Slider.css"
+import "./Restaurant.css"
+import { Spinner } from "../../components"
+import { useState, useEffect } from 'react';
+import axios from "axios"
+import Slider from 'infinite-react-carousel';
 
- const Restaurant = () => {
-     const BASEURL="https://backend-cordoba.vercel.app";
-     const ITEMSURL="/action/name/restaurant";
-     const [error,setError]=useState(null);
-     const [isLoaded,setIsLoaded]=useState(false);
-     const [items, setItems]=useState([]);
 
-     useEffect (()=>{
-         axios(BASEURL+ITEMSURL).then(
-            (res)=>{
+const Restaurant = () => {
+    const BASEURL = "https://backend-cordoba.vercel.app";
+    const ITEMSURL = "/action/name/restaurant";
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        axios(BASEURL + ITEMSURL).then(
+            (res) => {
                 setItems(res.data.data.Action);
                 console.log(items)
                 setIsLoaded(true);
-            } ,
-            (error)=>{
+            },
+            (error) => {
                 setIsLoaded(true);
                 setError(error);
             }
-         )
-     },[]);
-     if(error){
-         return <div>Error:{error.message}</div>
-     }else if(!isLoaded){
-         return<Spinner></Spinner>
-     }else{
-        return(
+        )
+    }, []);
+    if (error) {
+        return <div>Error:{error.message}</div>
+    } else if (!isLoaded) {
+        return <Spinner></Spinner>
+    } else {
+        return (
             <>
-                {items.map((item)=>(
-                <div key={item._id} id={`a${item._id}`} >
-                <div className="container">
-                    <section className='slider'>
-                        <Slider className='slider__content'>
-                        <img src={item.image} alt={item.name}/>
-                            <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                        </Slider>
-                    </section>
-                </div>
-                <h3>{item.name}</h3>
-                <p>{item.adress}</p>
-                <p>Horario:{item.hour}</p>
-                </div>
-                ))}
-{/*         <div className="container">
-            <section className='slider'>
-                <Slider className='slider__content'>
-                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mejores-series-anime-netflix-fotogramas-1627561159.jpg"></img>
-                    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Casa%20pepe%20de%20la%20Juder%C3%ADa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                </Slider>
-            </section>
-        </div> */}
-
-       </>
+                <ul className="List-container">
+                    {items.map((item) => (
+                        <div className="list-card" key={item._id} id={`a${item._id}`} >
+                            <img className="list-image" src={item.image} alt={item.name} />
+                            <h3 className="list-title">{item.name}</h3>
+                            <p className="list-text">{item.adress}</p>
+                            <p className="list-text">Horario:{item.hour}</p>
+                        </div>
+                    ))}
+                </ul>
+            </>
         );
-     }
+    }
 
- };
+};
 
- export default Restaurant
+export default Restaurant
