@@ -4,7 +4,7 @@ import axios from "axios"
 import { Spinner } from '../../components';
 import { GET_DISCO } from '../../api/fetch_routes';
 import './Disco.css'
-
+import Slider from 'infinite-react-carousel';
 
 
 const Disco = () => {
@@ -32,16 +32,21 @@ const Disco = () => {
     } else {
         return (
             <>
-                <ul className="List-container">
-                    {items.map((item) => (
-                        <div className="list-card" key={item._id} id={`a${item._id}`} >
-                            <img className="list-image" src={item.image} alt={item.name} />
-                            <h3 className="list-title">{item.name}</h3>
-                            <p className="list-text">{item.adress}</p>
-                            <p className="list-text">Horario:{item.hour}</p>
-                        </div>
-                    ))}
-                </ul>
+        <ul className="List-container">
+            {items.map((item)=>(
+            <li className="list-card" key={item._id} id={`a${item._id}`} >
+                <section className='slider'>
+                    <Slider className='slider__content'>
+                        <img className="list-image" src={item.image} alt={item.name} />
+                        <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </Slider>
+                </section>
+                <h3>{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
+            </li>
+            ))}
+            </ul>
             </>
         );
     }
