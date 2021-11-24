@@ -21,7 +21,7 @@ const RegisterForm = (props) => {
       await registerUser(registerForm);
       setRegisterForm(INITIAL_STATE);
       setError("");
-      history.push("/about"); 
+      history.push("/about");
     } catch (error) {
       setError(error.message);
     }
@@ -33,33 +33,41 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={submitForm} className="registerForm">
-        <input
+      <div class="form-floating">
+        <form onSubmit={submitForm} className="registerForm">
+          <input 
           type="text"
           name="name"
           value={registerForm.name}
           onChange={handleInput}
           placeholder="name"
-        />
-        <input
+          class="form-control" 
+          id="floatingInput" 
+          placeholder="Name"/>
+          <input 
           type="text"
           name="email"
           value={registerForm.email}
           onChange={handleInput}
           placeholder="E-mail"
-        />
-        <input
+          onChange={handleInput}
+          class="form-control" 
+          id="floatingInput" 
+          placeholder="Email"/>
+          <input 
           type="password"
           name="password"
           value={registerForm.password}
           onChange={handleInput}
           placeholder="Password"
-        />
-        <button type="submit">Register</button>
+          value={registerForm.email}
+          class="form-control" 
+          id="floatingInput" 
+          placeholder="Password"/>
+          <button className="register-button" type="submit">Register</button>
         {error && <div style={{ color: "red" }}>{error}</div>}
-      </form>
-    </div>
+        </form>
+      </div>
   );
 };
 
