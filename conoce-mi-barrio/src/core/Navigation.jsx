@@ -13,7 +13,7 @@ const Navigation = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
     return (
-        <>
+        <nav className="nav-container">
       {user?(
         <button onClick={showSidebar} className="show-navbar">menu</button>
         ):null}
@@ -60,7 +60,7 @@ const Navigation = () => {
           <button  onClick={logoutsesion}>logout</button>
         ):null}
       </div>
-        </>
+        </nav>
     )
 }
 
