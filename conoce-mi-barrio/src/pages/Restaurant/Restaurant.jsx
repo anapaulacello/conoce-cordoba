@@ -33,6 +33,7 @@ const Restaurant = () => {
     } else {
         return (
             <>
+<<<<<<< HEAD
                 <ul className="List-container">
                     {items.map((item) => (
                         <div className="list-card" key={item._id} id={`a${item._id}`} >
@@ -44,6 +45,25 @@ const Restaurant = () => {
                     ))}
                 </ul>
             </>
+=======
+            {items.map((item)=>(
+            <div key={item._id} id={`a${item._id}`} >
+                <div className="container">
+                    <section className='slider'>
+                        <Slider className='slider__content'>
+                            <img src={item.image} alt={item.name}/>
+                            <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </Slider>
+                    </section>
+                </div>
+                <h3>{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
+            </div>
+            ))} 
+
+       </>
+>>>>>>> 07158ddffa87d8919ee20045977174b13ff4ec5d
         );
     }
 
