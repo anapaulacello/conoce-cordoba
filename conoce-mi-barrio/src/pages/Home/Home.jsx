@@ -21,9 +21,9 @@ function Home() {
     return (
         <motion.div className="home-container">
             <motion.h1 className="home-container_title"
-          variants={svgVariants}
-          initial="hidden"
-          animate="show"
+            variants={svgVariants}
+            initial="hidden"
+            animate="show"
             >Conoce Córdoba.</motion.h1>
           {user==null?(        
             <Link to="login" style={{"text-decoration":"none"}}>
