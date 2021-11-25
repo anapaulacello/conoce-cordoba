@@ -19,7 +19,7 @@ const Multiform = () => {
 
     const getData = async () => {
         try {
-            Promise.all([fetcher('/action/name/disco'), fetcher('/action/name/culture'), fetcher('/action/name/restaurant')]).then((data) => { setItems(data)});
+            Promise.all([fetcher('/action/name/culture'),fetcher('/action/name/restaurant'),fetcher('/action/name/disco'),  ]).then((data) => { setItems(data)});
             setIsLoaded(true);
         } catch (error) {
             setError(error)
@@ -57,7 +57,6 @@ const Multiform = () => {
         if (step === 0) {
             return (
                 <>
-                    {/* <DayChooser></DayChooser> */}
                     <Form items={items} step={step}></Form>
                     <button onClick={changeStep}>Next Step</button>
                 </>
@@ -79,9 +78,7 @@ const Multiform = () => {
                     <Form items={items} step={step}></Form>
                     <button onClick={goBack}>go back</button>
                     <button onClick={saveDay}>Send</button>
-
                 </>
-
             )
         }
 

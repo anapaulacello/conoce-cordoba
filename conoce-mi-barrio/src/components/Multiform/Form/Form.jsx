@@ -1,10 +1,10 @@
-import React from 'react'
-import { useState } from 'react';
-import { createDay } from '../../../api/fetch_day';
+import React from "react";
+import { useState } from "react";
+import { createDay } from "../../../api/fetch_day";
 import DatePicker from "react-datepicker";
-import AddCorrectlyAlert from '../../Alerts/AddCorrectlyAlert';
+import './Form.css';
 
-const INITIAL_STATE = { date: "", actions: [] }
+const INITIAL_STATE = { date: "", actions: [] };
 
 const Form = ({ items, step }) => {
     const [state, setState] = useState(INITIAL_STATE);
@@ -14,8 +14,8 @@ const Form = ({ items, step }) => {
 
     const submitForm = async (ev) => {
         ev.preventDefault();
-        setError("")
-        console.log(JSON.stringify(state))
+        setError("");
+        console.log(JSON.stringify(state));
         /* localStorage.setItem(`FormData`, JSON.stringify(state)); */
 
         try {
@@ -27,40 +27,55 @@ const Form = ({ items, step }) => {
         }
     };
 
-
     const handleDateSelect = (date) => {
-        setStartDate(date)
+        setStartDate(date);
         setState({ ...state, date });
-        console.log(date)
-    }
+        console.log(date);
+    };
     const handleInput = (ev) => {
         const { value } = ev.target;
         setState({ ...state, actions: [...state.actions, value] });
-        console.log(state)
+        console.log(state);
     };
-
 
     return (
         <>
-            <h1>PASO: {step}</h1>
-            <form onSubmit={submitForm}>
-                <DatePicker minDate={new Date()} selected={startDate} onChange={handleDateSelect} value={handleDateSelect} />
-                <label>
+            <h1>PLANEA TU DÍA</h1>
+            <p>Primero, elige una fecha para tu visita:</p>
+            <form className="form" onSubmit={submitForm}>
+                <DatePicker
+                    className="date-picker"
+                    minDate={new Date()}
+                    selected={startDate}
+                    onChange={handleDateSelect}
+                    value={handleDateSelect}
+                />
+                <p>¡Ahora puedes elegir los sitios que vas a visitar! Elige lo que prefieras hacer en tu día en Córdoba 💃</p>
+                <label className="form-page">
                     {items[step].data.Action.map((item) => (
-                        <div key={item._id}>
-                            <img className="image" src={item.image} alt={item.name}></img>
-                            <h3>{item.name}</h3>
-                            <p>{item.adress}</p>
-                            <p>Horario:{item.hour}</p>
-                            <input type="checkbox" name={item.name} value={item._id} onChange={handleInput} />
+                        <div className="form-container" key={item._id}>
+                            <img
+                                className="form-image"
+                                src={item.image}
+                                alt={item.name}
+                            ></img>
+                            <h3 className="form-title">{item.name}</h3>
+                            <p className="form-text">{item.adress}</p>
+                            <p className="form-text">Horario:{item.hour}</p>
+                            <input
+                                className="form-check"
+                                type="checkbox"
+                                name={item.name}
+                                value={item._id}
+                                onChange={handleInput}
+                            />
                         </div>
-                    ))
-                    }
+                    ))}
                 </label>
-                <button type="submit" >Guardar Actions</button>
+                <button className="submit-button" type="submit">Guardar Actions</button>
             </form>
         </>
-    )
-}
+    );
+};
 
-export default Form
+export default Form;
