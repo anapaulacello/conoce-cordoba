@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import styled from 'styled-components';
-import RightNav from './RightNav';
-
+import {Link} from "react-router-dom"
+import { logout } from '../../api/fetch_user';
+import { UserContext } from '../../App'
+import "./Burguer.css"
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
@@ -36,8 +38,39 @@ const StyledBurger = styled.div`
   }
 `;
 
+const Ul = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 500px;
+  li {
+    padding: 18px 10px;
+  }
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    background-color:#a0581a;
+    position: fixed;
+    z-index: 90;
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    padding-top: 3.5rem;
+    transition: transform 0.3s ease-in-out;
+    li {
+      color: #fff;
+    }
+  }
+`;
+
+
 const Burger = () => {
   const [open, setOpen] = useState(false)
+  const {user}=useContext(UserContext);
+const logoutsesion =async()=>{
+  await logout()
+}
   
   return (
     <>
@@ -46,7 +79,46 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open}/>
+      <Ul className="sidebar" open={open}>
+      {user?(
+        <Link to="/">
+        <a className="sidebar__item" onClick={() => setOpen(!open)}>home</a>
+        </Link>
+        ):null}
+        {user?(
+          <Link to="/restaurants">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>restaurants</a>
+        </Link>
+        ):null}
+        {user?(
+          <Link to="/cultures">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>cultures</a>
+        </Link>
+        ):null}
+        {user?(
+          <Link to="/discos">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>discos</a>
+        </Link>
+        ):null}
+        {user?(
+          <Link to="/about">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>about</a>
+        </Link>
+        ):null}
+        {user?(
+          <Link to="/multiform">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>multiform</a>
+        </Link>
+        ):null}
+          {user?(
+          <Link to="/profile">
+          <a className="sidebar__item" onClick={() => setOpen(!open)}>profile</a>
+        </Link>
+        ):null}
+        {user?(
+          <a className="sidebar__item"  onClick={logoutsesion}>logout</a>
+        ):null}
+    </Ul>
     </>
   )
 }

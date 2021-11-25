@@ -5,7 +5,6 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import {About, Culture, Disco, Home, Login, Register, Restaurant, Profile} from "./pages"
 import { AuthRoute } from './components';
 import Multiform from './components/Multiform/Multiform';
-import Navigation from './core/Navigation';
 
 export const UserContext=React.createContext(null);
 
