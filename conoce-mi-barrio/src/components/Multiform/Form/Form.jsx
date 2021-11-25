@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createDay } from "../../../api/fetch_day";
 import DatePicker from "react-datepicker";
-import AddCorrectlyAlert from "../../Alerts/AddCorrectlyAlert";
+import './Form.css';
 
 const INITIAL_STATE = { date: "", actions: [] };
 
@@ -40,15 +40,18 @@ const Form = ({ items, step }) => {
 
     return (
         <>
-            <h1>PASO: {step}</h1>
-            <form onSubmit={submitForm}>
+            <h1>PLANEA TU DÍA</h1>
+            <p>Primero, elige una fecha para tu visita:</p>
+            <form className="form" onSubmit={submitForm}>
                 <DatePicker
+                    className="date-picker"
                     minDate={new Date()}
                     selected={startDate}
                     onChange={handleDateSelect}
                     value={handleDateSelect}
                 />
-                <label>
+                <p>¡Ahora puedes elegir los sitios que vas a visitar! Elige lo que prefieras hacer en tu día en Córdoba 💃</p>
+                <label className="form-page">
                     {items[step].data.Action.map((item) => (
                         <div className="form-container" key={item._id}>
                             <img
@@ -60,6 +63,7 @@ const Form = ({ items, step }) => {
                             <p className="form-text">{item.adress}</p>
                             <p className="form-text">Horario:{item.hour}</p>
                             <input
+                                className="form-check"
                                 type="checkbox"
                                 name={item.name}
                                 value={item._id}
@@ -68,7 +72,7 @@ const Form = ({ items, step }) => {
                         </div>
                     ))}
                 </label>
-                <button type="submit">Guardar Actions</button>
+                <button className="submit-button" type="submit">Guardar Actions</button>
             </form>
         </>
     );
