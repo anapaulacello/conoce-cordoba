@@ -13,8 +13,23 @@ text-align: center;
     max-width: 900px;
 }
 
-input{
-    margin: 10px;
+.form-control{
+text-decoration: none;
+margin: 10px;
+border: 2px solid #fff;
+background-color: transparent;
+padding: 6px 20px;
+border-radius: 30px;
+letter-spacing: 1px;
+font-size: larger;
+}
+.form-control::placeholder{
+    color: white;
+    text-align: center;
+}
+.form-control:focus{
+    background-color: #a0581a;
+    color: white;
 }
 
 select {
@@ -25,8 +40,8 @@ select {
 text-decoration: none;
 margin: 30px 10px;
 border: 2px solid #fff;
-color: white;
-background-color: transparent;
+color: #88501e;
+background-color: #fff;
 padding: 6px 20px;
 border-radius: 30px;
 letter-spacing: 1px;

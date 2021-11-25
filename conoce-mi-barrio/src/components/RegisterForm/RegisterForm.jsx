@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 const INITIAL_STATE = {
   email: "",
   name: "",
-  password: ""
 };
 const RegisterForm = (props) => {
   const history = useHistory();
@@ -41,7 +40,7 @@ const RegisterForm = (props) => {
           value={registerForm.name}
           onChange={handleInput}
           placeholder="name"
-          class="form-control" 
+          className="form-control" 
           id="floatingInput" 
           placeholder="Name"/>
           <input 
@@ -51,7 +50,7 @@ const RegisterForm = (props) => {
           onChange={handleInput}
           placeholder="E-mail"
           onChange={handleInput}
-          class="form-control" 
+          className="form-control" 
           id="floatingInput" 
           placeholder="Email"/>
           <input 
@@ -60,8 +59,7 @@ const RegisterForm = (props) => {
           value={registerForm.password}
           onChange={handleInput}
           placeholder="Password"
-          value={registerForm.email}
-          class="form-control" 
+          className="form-control" 
           id="floatingInput" 
           placeholder="Password"/>
           <button className="register-button" type="submit">Register</button>

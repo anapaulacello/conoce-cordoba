@@ -33,28 +33,21 @@ const Restaurant = () => {
         return (
             <>
                 {items.map((item) => (
-                    <div key={item._id} id={`a${item._id}`}>
-                        <div className="container">
-                            <section className="slider">
-                                <Slider className="slider__content">
-                                    <img src={item.image} alt={item.name} />
-                                    <iframe
-                                        width="600"
-                                        height="500"
-                                        id="gmap_canvas"
-                                        src={item.googleAdress}
-                                        frameborder="0"
-                                        scrolling="no"
-                                        marginheight="0"
-                                        marginwidth="0"
-                                    ></iframe>
-                                </Slider>
-                            </section>
-                        </div>
-                        <h3>{item.name}</h3>
-                        <p>{item.adress}</p>
-                        <p>Horario:{item.hour}</p>
-                    </div>
+                    <ul className="List-container">
+            {items.map((item)=>(
+            <li className="list-card" key={item._id} id={`a${item._id}`} >
+                <section className='slider'>
+                    <Slider className='slider__content'>
+                        <img className="list-image" src={item.image} alt={item.name} />
+                        <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </Slider>
+                </section>
+                <h3 className="list-title">{item.name}</h3>
+                <p>{item.adress}</p>
+                <p>Horario:{item.hour}</p>
+            </li>
+            ))}
+            </ul>
                 ))}
             </>
         );

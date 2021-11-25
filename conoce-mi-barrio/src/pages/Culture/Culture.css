@@ -22,7 +22,8 @@ padding: 0;
 }
 .list-image{
 width: 380px;
-max-height: 259px;
+min-height: 350px;
+object-fit: cover;
 max-width: 100%;
 /*     margin: 15px 30px; */
 margin:0;
@@ -33,6 +34,7 @@ filter: brightness(120%);
     
 }
 .list-title{
+    padding-top: 10px;
     color:  #445c48;
 } 
 

@@ -40,8 +40,8 @@ const Form = ({ items, step }) => {
 
     return (
         <>
-            <h1>PLANEA TU DÍA</h1>
-            <p>Primero, elige una fecha para tu visita:</p>
+            <h1 className="form-h1">PLANEA TU DÍA</h1>
+            <p className="form-maintext">Primero, elige una fecha para tu visita:</p>
             <form className="form" onSubmit={submitForm}>
                 <DatePicker
                     className="date-picker"

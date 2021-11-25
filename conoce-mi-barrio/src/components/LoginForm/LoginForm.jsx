@@ -31,12 +31,12 @@ const LoginForm = () => {
     <div class="form-floating">
       <form onSubmit={submitForm} className="login-form">
         <input
-          className="list-input"
+          className="login-input"
           type="text"
           name="email"
           placeholder="E-mail" />
         <input
-          className="list-input"
+          className="login-input"
           type="password"
           name="password"
           placeholder="Password" />

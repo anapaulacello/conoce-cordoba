@@ -40,7 +40,7 @@ const Culture = () => {
                         <iframe width="600" height="500" id="gmap_canvas" src={item.googleAdress} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </Slider>
                 </section>
-                <h3>{item.name}</h3>
+                <h3 className="list-title">{item.name}</h3>
                 <p>{item.adress}</p>
                 <p>Horario:{item.hour}</p>
             </li>
