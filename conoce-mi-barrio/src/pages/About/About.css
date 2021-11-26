@@ -1,0 +1,48 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    padding:100px 30px;
+}
+.about-maintitle{
+    text-align: center;
+}
+.about-text{
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+
+.rrss-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding:0;
+}
+.rrss-card{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    text-align: center;
+    width: 180px;
+    max-width: 100%;
+    border: solid 3px #a86529;
+    padding:20px;
+    border-radius: 40px;
+    margin: 20px;
+    color: #a86529;
+}
+.rrss-card:hover{
+    background-color: #a86529;
+    color: white;
+    border-color: white;
+}
+.rrss-item img{
+    width: 40px;
+    margin: 10px;
+}
+.rrss-icons{
+    display: flex;
+    justify-content: center;
+    flex-direction:row  ;
+}
