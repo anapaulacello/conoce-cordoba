@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="logo">
-        Nav Bar
+        CONOCE CÓRDOBA
       </div>
       <Burger />
     </Nav>

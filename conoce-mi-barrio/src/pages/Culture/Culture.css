@@ -1,4 +1,5 @@
 .List-container{
+padding: 90px 35px;
 padding: 55px;
 display: flex;
 flex-direction: row;
@@ -15,7 +16,7 @@ align-items: center;
 width: 380px;
 max-width: 100%;
 margin-bottom: 60px;
-box-shadow: 0 12px 24px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+box-shadow: 0 12px 24px rgba(165, 99, 69, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 min-height: 500px;
 padding: 0;
 
@@ -34,11 +35,11 @@ filter: brightness(120%);
     
 }
 .list-title{
-    padding-top: 10px;
-    color:  #445c48;
+    color:  #a85a2dcb;
+    margin-top: 10px;
 } 
 
 .list-text{
-    font-size: 15px;
-    color: #301618;
+    font-size: 18px;
+    color: #794820;
 }

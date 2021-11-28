@@ -28,12 +28,11 @@ const Restaurant = () => {
     if (error) {
         return <div>Error:{error.message}</div>;
     } else if (!isLoaded) {
-        return <Spinner></Spinner>;
+        return <Spinner className="spinner"></Spinner>;
     } else {
         return (
             <>
-                {items.map((item) => (
-                    <ul className="List-container">
+            <ul className="List-container">
             {items.map((item)=>(
             <li className="list-card" key={item._id} id={`a${item._id}`} >
                 <section className='slider'>
@@ -43,12 +42,11 @@ const Restaurant = () => {
                     </Slider>
                 </section>
                 <h3 className="list-title">{item.name}</h3>
-                <p>{item.adress}</p>
-                <p>Horario:{item.hour}</p>
+                <p className="list-text">{item.adress}</p>
+                <p className="list-text">Horario:{item.hour}</p>
             </li>
             ))}
             </ul>
-                ))}
             </>
         );
     }

@@ -28,7 +28,7 @@ font-size: larger;
     text-align: center;
 }
 .login-input:focus{
-background-color: #a0581a;
+background-color: #a0581a7a;
 color: white;
 }
 
@@ -40,7 +40,7 @@ select {
 text-decoration: none;
 margin: 30px 10px;
 border: 2px solid #fff;
-color: #88501e; 
+color: #4e3520; 
 background-color: #fff;
 padding: 6px 20px;
 border-radius: 30px;

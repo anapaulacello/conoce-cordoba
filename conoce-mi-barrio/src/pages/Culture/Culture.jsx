@@ -41,8 +41,8 @@ const Culture = () => {
                     </Slider>
                 </section>
                 <h3 className="list-title">{item.name}</h3>
-                <p>{item.adress}</p>
-                <p>Horario:{item.hour}</p>
+                <p className="list-text">{item.adress}</p>
+                <p className="list-text">Horario:{item.hour}</p>
             </li>
             ))}
             </ul>

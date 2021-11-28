@@ -1,8 +1,18 @@
-.sidebar__item{
-    color: black;
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+    padding:50px ;
     text-decoration: none;
-    padding: 20px 10px;
-    cursor: pointer;
+}
+.sidebar__item{
+color: white;
+padding: 20px 10px;
+cursor: pointer;
+padding: 40px 10px;
+text-decoration: none;
 }
 
 .sidebar__item:hover{
