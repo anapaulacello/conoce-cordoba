@@ -1,15 +1,15 @@
 import React from 'react'
-import '../styles.css'
-import Header from '../Header/Header';
  
  import { useState, useEffect } from 'react';
  import axios from "axios"
+import { Button, DayChooser, Spinner } from '../../components';
+import CheckBox from '../../components/CheckBox';
 
  
 
- const Restaurant = () => {
+ const Culture = () => {
      const BASEURL="https://backend-cordoba.vercel.app";
-     const ITEMSURL="/action/name/disco";
+     const ITEMSURL="/action/name/culture";
      const [error,setError]=useState(null);
      const [isLoaded,setIsLoaded]=useState(false);
      const [items, setItems]=useState([]);
@@ -30,11 +30,10 @@ import Header from '../Header/Header';
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
              <>
-             <Header></Header>
             <ul>
             {items.map((item)=>(
               <li key={item._id}>
@@ -42,13 +41,17 @@ import Header from '../Header/Header';
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <CheckBox></CheckBox>
               </li>  
+            
             ))}
         </ul>
+        <DayChooser></DayChooser>
+        <Button></Button>
         </>
          );
      }
 
  };
 
- export default Restaurant
+ export default Culture

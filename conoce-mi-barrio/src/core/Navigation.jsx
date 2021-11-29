@@ -1,23 +1,55 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from "react-router-dom"
+import { logout } from '../api/fetch_user';
+import { UserContext } from '../App'
+
 const Navigation = () => {
+  const {user}=useContext(UserContext);
+  const logoutsesion =async()=>{
+    await logout()
+  }
+
     return (
         <>
         <Link to="/">
           <button>Home</button>
         </Link>
-        <Link to="/restaurants">
+        {user?(
+          <Link to="/restaurants">
           <button>restaurants</button>
         </Link>
-        <Link to="/cultures">
-          <button>Culture</button>
+        ):null}
+        {user?(
+          <Link to="/cultures">
+          <button>cultures</button>
         </Link>
-        <Link to="/discos">
-          <button>Disco</button>
+        ):null}
+        {user?(
+          <Link to="/discos">
+          <button>discos</button>
         </Link>
-        <Link to="/about">
-          <button>About</button>
+        ):null}
+        {user?(
+          <Link to="/about">
+          <button>about</button>
         </Link>
+        ):null}
+        {user?(
+          <button onClick={logoutsesion}>logout</button>
+        ):null}
+ 
+
+        {user==null?(        
+          <Link to="login">
+            <button>login</button>
+          </Link>
+        ):null}
+        {user==null?( 
+          <Link to="register">
+          <button>register</button>
+        </Link>
+        ):null}
+
         </>
     )
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 import "../styles.css"
- 
+import {AuthRoute,LoginForm,RegisterForm,Checkbox, DayChooser, Spinner, Button} from "../../components"
  import { useState, useEffect } from 'react';
  import axios from "axios"
-import Header from '../Header/Header';
+import CheckBox from '../../components/CheckBox';
 
  
 
  const Restaurant = () => {
      const BASEURL="https://backend-cordoba.vercel.app";
-     const ITEMSURL="/action/name/culture";
+     const ITEMSURL="/action/name/restaurant";
      const [error,setError]=useState(null);
      const [isLoaded,setIsLoaded]=useState(false);
      const [items, setItems]=useState([]);
@@ -30,22 +30,23 @@ import Header from '../Header/Header';
      if(error){
          return <div>Error:{error.message}</div>
      }else if(!isLoaded){
-         return<div>Loading...</div>
+         return<Spinner></Spinner>
      }else{
          return(
-             <>
-             <Header></Header>
+            <>
             <ul>
             {items.map((item)=>(
-              <li key={item._id}>
+              <li key={item._id}>     
                   <img className="image" src={item.image} alt={item.name}></img>
                   <h3>{item.name}</h3>
                   <p>{item.adress}</p>
                   <p>Horario:{item.hour}</p>
+                  <CheckBox></CheckBox>
               </li>  
-            
             ))}
         </ul>
+        <DayChooser></DayChooser>
+        <Button></Button>
         </>
          );
      }
