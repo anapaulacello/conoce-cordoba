@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Form from './Form/Form';
 import Spinner from '../Spinner/Spinner';
-/* import DayChooser from '../DayChooser/DayChooser'; */
+import './Form/Form.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 const Multiform = () => {
@@ -57,8 +57,8 @@ const Multiform = () => {
         if (step === 0) {
             return (
                 <>
-                    <Form items={items} step={step}></Form>
-                    <button onClick={changeStep}>Next Step</button>
+                <Form items={items} step={step}></Form>
+                <button className="form-step" onClick={changeStep}>Next Step</button>
                 </>
 
             )
@@ -67,8 +67,8 @@ const Multiform = () => {
             return (
                 <>
                     <Form items={items} step={step}></Form>
-                    <button onClick={goBack}>go back</button>
-                    <button onClick={changeStep}>Next Step</button>
+                    <button className="form-step" onClick={goBack}>go back</button>
+                    <button className="form-step" onClick={changeStep}>Next Step</button>
                 </>
 
             )
@@ -76,8 +76,8 @@ const Multiform = () => {
             return (
                 <>
                     <Form items={items} step={step}></Form>
-                    <button onClick={goBack}>go back</button>
-                    <button onClick={saveDay}>Send</button>
+                    <button className="form-step" onClick={goBack}>go back</button>
+                    <button className="form-step" onClick={saveDay}>Send</button>
                 </>
             )
         }

@@ -29,7 +29,7 @@ const Form = ({ items, step }) => {
 
     const handleDateSelect = (date) => {
         setStartDate(date);
-        setState({ ...state, date });
+        setState({ ...state,date });
         console.log(date);
     };
     const handleInput = (ev) => {
@@ -42,7 +42,7 @@ const Form = ({ items, step }) => {
         <>
             <h1 className="form-h1">PLANEA TU DÍA</h1>
             <p className="form-maintext">Primero, elige una fecha para tu visita:</p>
-            <form className="form" onSubmit={submitForm}>
+            <form className="form" onSubmit={submitForm}>           
                 <DatePicker
                     className="date-picker"
                     minDate={new Date()}
@@ -50,7 +50,7 @@ const Form = ({ items, step }) => {
                     onChange={handleDateSelect}
                     value={handleDateSelect}
                 />
-                <p>¡Ahora puedes elegir los sitios que vas a visitar! Elige lo que prefieras hacer en tu día en Córdoba 💃</p>
+                <p className="form-maintext">¡Ahora puedes elegir los sitios que vas a visitar! Elige lo que prefieras hacer en tu día en Córdoba 💃</p>
                 <label className="form-page">
                     {items[step].data.Action.map((item) => (
                         <div className="form-container" key={item._id}>
@@ -71,8 +71,9 @@ const Form = ({ items, step }) => {
                             />
                         </div>
                     ))}
-                </label>
-                <button className="submit-button" type="submit">Guardar Actions</button>
+                    </label>
+                    <button className="submit-button" type="submit">Guardar</button>           
+                
             </form>
         </>
     );

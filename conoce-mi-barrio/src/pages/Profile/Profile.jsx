@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../App";
 import { deleteDayFromUser, getDayFromUser } from "../../api/fetch_day";
+import './Profile.css'
 
 const Profile = () => {
   const [error, setError] = useState(null);
@@ -26,15 +27,16 @@ const Profile = () => {
   };
   return (
     <div className="profile-container">
-      {user ? <p>hola {user}</p> : null}
-      <h3>usuario: {user}</h3>
-      <h3>email: {user.email}</h3>
-      <div class="accordion accordion-flush" id="accordionFlushExample">
+      {user ? <h1 className="profile-title">¡HOLA, {user.toUpperCase()}!</h1> : null}
+      <p className="profile-text">Aquí puedes ver el itinerario que has seleccionado:</p>
+      {/*       <h3>usuario: {user}</h3>
+      <h3>email: {user.email}</h3> */}
+      <div className="accordion-accordion-flush" id="accordionFlushExample">
         {itinerary.map((element) => (
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingOne">
               <button
-                class="accordion-button collapsed"
+                className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target={`#a${element._id}`}
@@ -42,25 +44,27 @@ const Profile = () => {
                 aria-controls="flush-collapseOne"
               >
                 {element.date}
-                <a
-                  onClick={() => {
-                    deleteDay(element._id);
-                  }}
-                >
-                  🗑️
-                </a>
               </button>
             </h2>
             {element.actions.map((action) => (
               <div
                 id={`a${element._id}`}
-                class="accordion-collapse collapse"
+                className="accordion-collapse-collapse"
                 aria-labelledby="flush-headingOne"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">{action.name}</div>
+                <div className="accordion-body">{action.name}</div>
               </div>
             ))}
+            <div className="trash-container">
+              <a
+                onClick={() => {
+                  deleteDay(element._id);
+                }}
+              >
+                <img className="papelera" src="https://img.icons8.com/bubbles/500/delete.png" alt="papelera" />
+              </a>
+            </div>
           </div>
         ))}
       </div>

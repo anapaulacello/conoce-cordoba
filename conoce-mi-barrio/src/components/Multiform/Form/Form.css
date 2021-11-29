@@ -1,3 +1,4 @@
+
 .form-h1{
 padding-top: 90px;
 text-align: center;
@@ -6,14 +7,34 @@ color: #a85a2dcb
 .form-maintext{
 color: #794820;
 text-align: center;
-font-size: 17px;
+font-size: 20px;
 padding: 15px;
 }
 
-.date-picker{
-    margin: 0;
-    text-align: center;
+.form-calendar-icon{
+width: 200px;
+z-index: 100;
 }
+
+.date-picker{
+    margin-bottom: 20px;
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/425/425868.png');
+    background-size: contain;
+    border: none;
+    color: transparent;
+}
+.date-picker:hover{
+    filter:saturate(160%);
+}
+
+.react-datepicker__month-container{
+    position:static;
+} 
+
 .form{
 display: flex;
 flex-direction: column;
@@ -27,46 +48,74 @@ flex-wrap: wrap;
 justify-content: space-around;
 }
 .form-container{
-list-style-type: none;
-display: flex;
-flex-direction: column;
-text-align: center;
-justify-content: space-between;
-align-items: center;
-width: 325px;
-max-width: 100%;
-margin-bottom: 60px;
-border: solid 2px #445c48;
-border-radius: 20px;
-box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
-min-height: 400px;
-padding: 10px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    max-width: 100%;
+    margin-bottom: 60px;
+    box-shadow: 0 12px 24px rgba(165, 99, 69, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+    min-height: 400px;
+    padding: 0;
 }
 
 .form-image{
-width: 300px;
-border-radius: 20px;
-max-height: 259px;
-max-width: 100%;
-margin-bottom:10px;
+    object-fit: cover;
+    max-width: 100%;
+    height: 240px;
+    margin:0;
 }
 .form-check{
     width: 30px;
     margin:10px;
+    cursor: pointer;
 }
-/*     .list-image:hover{
-filter: saturate(100%);
-filter: brightness(120%);
-    
-} */
+
 .form-title{
-    color:  #445c48;
+    margin-top: 10px;
+    color: #a85a2dcb;
 } 
 
 .form-text{
     font-size: 15px;
-    color: #301618;
+    color: #794820;
+}
+
+.submit-button,
+.form-step{
+    text-decoration: none;
+    margin: 30px 10px;
+    border: 2px solid #9c6644e7;
+    color: white;
+    background-color: #9c6644e7;
+    padding: 8px 15px;
+    border-radius: 20px;
+    letter-spacing: 1px; 
 }
 .submit-button{
-    float: left;
+    width: 130px;
+    height: 60px;
+    font-size: 20px;
+    position: fixed;
+	bottom: 35px;
+	right: 50px;
+	transition: all 300ms ease 0ms;
+}
+.submit-button:hover,
+.form-step:hover{
+    background-color: rgba(255, 255, 255, 0.924);
+    color: #9c6644e7;
+    border: 2px  solid #9c6644e7;
+    transition: 0.2s ease-out;
+}
+@media only screen and (max-width: 768px) {
+    .submit-button {
+    font-size: 14px;
+    padding: 12px 20px;
+    bottom: 10px;
+    right: 10px;
+}
 }
