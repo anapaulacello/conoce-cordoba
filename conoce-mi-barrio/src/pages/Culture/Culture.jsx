@@ -5,6 +5,7 @@ import './Culture.css';
 import { Spinner } from '../../components';
 import { GET_CULTURE } from '../../api/fetch_routes';
 import Slider from 'infinite-react-carousel';
+import { Link } from 'react-router-dom';
 
 const Culture = () => {
     const [error, setError] = useState(null);
@@ -46,10 +47,11 @@ const Culture = () => {
             </li>
             ))}
             </ul>
+            <Link to="/multiform">
+            <button className="multiform-button">¡PLANEA TU DÍA!</button>
+            </Link>
             </>
         );
     }
-
 };
-
 export default Culture

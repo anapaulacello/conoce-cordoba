@@ -59,9 +59,7 @@ function About() {
                     <div className="rrss-icons">
                     <a className="rrss-item" href="https://www.linkedin.com/in/juan-alejandro-huertas-alzate-5a2421225/"><img src="https://cdn.iconscout.com/icon/free/png-256/linkedin-182-675325.png" alt="" /></a>
                     <a className="rrss-item" href="https://github.com/juan1497"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051377.png" alt="" /></a>
-                    </div>
-                        
-
+                    </div>                        
                 </li>
             </ul>
             </div>

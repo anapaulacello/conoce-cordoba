@@ -4,6 +4,7 @@ import { Spinner } from "../../components";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "infinite-react-carousel";
+import { Link } from "react-router-dom";
 
 const Restaurant = () => {
     const BASEURL = "https://backend-cordoba.vercel.app";
@@ -47,6 +48,9 @@ const Restaurant = () => {
             </li>
             ))}
             </ul>
+            <Link to="/multiform">
+            <button className="multiform-button">¡PLANEA TU DÍA!</button>
+            </Link>
             </>
         );
     }

@@ -28,6 +28,7 @@
 }
 .accordion-accordion-flush{
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
     color:#9c6644da;

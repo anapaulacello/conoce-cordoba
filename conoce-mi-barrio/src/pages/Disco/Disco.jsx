@@ -5,6 +5,7 @@ import { Spinner } from '../../components';
 import { GET_DISCO } from '../../api/fetch_routes';
 import './Disco.css'
 import Slider from 'infinite-react-carousel';
+import { Link } from 'react-router-dom';
 
 
 const Disco = () => {
@@ -47,6 +48,9 @@ const Disco = () => {
             </li>
             ))}
             </ul>
+            <Link to="/multiform">
+            <button className="multiform-button">¡PLANEA TU DÍA!</button>
+            </Link>
             </>
         );
     }
