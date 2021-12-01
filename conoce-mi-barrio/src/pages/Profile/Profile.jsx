@@ -13,6 +13,8 @@ const Profile = () => {
     try {
       const { data } = await getDayFromUser();
       setItinerary(data.days.itinerary);
+      console.log(new Date(data))
+      console.log(new Date(data).toLocaleDateString())
     } catch (error) {
       setError(error);
     }

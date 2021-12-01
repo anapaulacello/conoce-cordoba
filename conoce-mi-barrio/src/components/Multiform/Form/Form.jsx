@@ -9,7 +9,6 @@ const INITIAL_STATE = { date: "", actions: [] };
 
 const Form = ({ items, step }) => {
     const [state, setState] = useState(INITIAL_STATE);
-    const [actions, setActions] = useState([]);
     const [error, setError] = useState(null);
     const [startDate, setStartDate] = useState(new Date());
 
@@ -28,10 +27,10 @@ const Form = ({ items, step }) => {
         }
     };
 
-    const handleDateSelect = (date) => {
-        setStartDate(date);
-        setState({ ...state,date });
-        console.log(date);
+    const handleDateSelect = (value) => {
+        const formstedDate=value.toLocaleDateString()
+        setStartDate(value);
+        setState({ ...state,date:formstedDate });
     };
     const handleInput = (ev) => {
         const { value } = ev.target;
