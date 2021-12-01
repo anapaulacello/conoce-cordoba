@@ -60,10 +60,6 @@ function App() {
               path="/multiform"
               render={(props) => <Multiform user={user} {...props} />} 
             ></AuthRoute>
-{/*             <Route exact path="/restaurants" component={Restaurant} />
-            <Route exact path="/cultures" component={Culture} />
-            <Route exact path="/discos" component={Disco} /> */}
-            {/* <Route exact path="/about" component={About} /> */}
           </Switch>
         </UserContext.Provider>
       </Router>

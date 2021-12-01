@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { loginUser } from "../../api/fetch_user";
 import { UserContext } from "../../App";
 import './LoginForm.css'
@@ -32,7 +32,7 @@ const LoginForm = () => {
       <form onSubmit={submitForm} className="login-form">
         <input
           className="login-input"
-          type="text"
+          type="email"
           name="email"
           placeholder="E-mail" />
         <input
@@ -42,6 +42,9 @@ const LoginForm = () => {
           placeholder="Password" />
         <button className="login-button" type="submit">Login</button>
       </form>
+      <Link to="/register" style={{ "text-decoration": "none" }}>
+          <p>¿No tienes cuenta?</p>
+      </Link>
     </div>
   );
 };

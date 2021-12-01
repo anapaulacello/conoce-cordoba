@@ -39,16 +39,13 @@ const RegisterForm = (props) => {
           name="name"
           value={registerForm.name}
           onChange={handleInput}
-          placeholder="name"
           className="form-control" 
           id="floatingInput" 
           placeholder="Name"/>
           <input 
-          type="text"
+          type="email"
           name="email"
           value={registerForm.email}
-          onChange={handleInput}
-          placeholder="E-mail"
           onChange={handleInput}
           className="form-control" 
           id="floatingInput" 
@@ -58,7 +55,6 @@ const RegisterForm = (props) => {
           name="password"
           value={registerForm.password}
           onChange={handleInput}
-          placeholder="Password"
           className="form-control" 
           id="floatingInput" 
           placeholder="Password"/>

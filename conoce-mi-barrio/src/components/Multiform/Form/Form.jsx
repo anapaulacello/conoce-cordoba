@@ -43,14 +43,16 @@ const Form = ({ items, step }) => {
         <>
             <h1 className="form-h1">PLANEA TU DÍA</h1>
             <p className="form-maintext">Primero, elige una fecha para tu visita:</p>
-            <form className="form" onSubmit={submitForm}>           
-                <DatePicker
+            <form className="form" onSubmit={submitForm}>   
+            <div className="form_date-picker" >
+            <DatePicker
                     className="date-picker"
                     minDate={new Date()}
                     selected={startDate}
                     onChange={handleDateSelect}
                     value={handleDateSelect}
-                />
+            />
+            </div>       
                 <p className="form-maintext">¡Ahora puedes elegir los sitios que vas a visitar! Elige lo que prefieras hacer en tu día en Córdoba 💃</p>
                 <label className="form-page">
                     {items[step].data.Action.map((item) => (
