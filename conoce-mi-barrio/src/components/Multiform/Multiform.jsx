@@ -77,7 +77,6 @@ const Multiform = () => {
                 <>
                     <Form items={items} step={step}></Form>
                     <button className="form-step" onClick={goBack}>go back</button>
-                    <button className="form-step" onClick={saveDay}>Send</button>
                 </>
             )
         }

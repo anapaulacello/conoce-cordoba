@@ -30,11 +30,24 @@ z-index: 100;
 .date-picker:hover{
     filter:saturate(160%);
 }
+.react-datepicker__triangle::before,
+.react-datepicker__triangle::after {
+    transform: translate3d(-62px, 0px, 0px);
+    left: 10px;
+}
+.react-datepicker {
+    transform: translate3d(65px, -10px, 0px);
+}
 
-.react-datepicker__month-container{
-    position:static;
-} 
-
+@media only screen and (min-width: 768px){
+    .react-datepicker__triangle::before,
+    .react-datepicker__triangle::after {
+        transform: translate3d(-110px, 0px, 90px);
+    }
+    .react-datepicker {
+        transform: translate3d(830px, -10px, 0px);
+    }
+}
 .form{
 display: flex;
 flex-direction: column;

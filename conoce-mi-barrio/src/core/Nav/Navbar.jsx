@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Burger from './Burguer';
 
@@ -20,7 +21,9 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="logo">
-        CONOCE CÓRDOBA
+      <Link to="/" style={{ "text-decoration": "none" }}>
+            <a className="home-link">CONOCE CORDOBA</a>
+        </Link>
       </div>
       <Burger />
     </Nav>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createDay } from "../../../api/fetch_day";
 import DatePicker from "react-datepicker";
 import './Form.css';
+import AddCorrectlyAlert from "../../Alerts/AddCorrectlyAlert";
 
 const INITIAL_STATE = { date: "", actions: [] };
 

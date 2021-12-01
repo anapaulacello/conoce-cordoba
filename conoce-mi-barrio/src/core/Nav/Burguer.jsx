@@ -55,7 +55,7 @@ const Ul = styled.ul`
     top: 0;
     right: 0;
     height: 100vh;
-    width: 270px;
+    width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     li {
@@ -106,11 +106,6 @@ const Burger = () => {
           </Link>
         ) : null}
         {user ? (
-          <Link to="/about">
-            <a className="sidebar__item" onClick={() => setOpen(!open)}>SOBRE NOSOTROS</a>
-          </Link>
-        ) : null}
-        {user ? (
           <Link to="/multiform">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>¡PLANEA TU DÍA!</a>
           </Link>
@@ -118,6 +113,11 @@ const Burger = () => {
         {user ? (
           <Link to="/profile">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>PERFIL</a>
+          </Link>
+        ) : null}
+        {user ? (
+          <Link to="/about">
+            <a className="sidebar__item" onClick={() => setOpen(!open)}>SOBRE NOSOTROS</a>
           </Link>
         ) : null}
         {user ? (

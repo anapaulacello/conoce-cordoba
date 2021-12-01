@@ -7,6 +7,14 @@
     padding:50px ;
     text-decoration: none;
 }
+.home-link{
+    color:#a85a2dcb;
+    font-size: 16px;
+    padding: 20px 10px;
+    cursor: pointer;
+    padding: 40px 10px;
+    text-decoration: none;
+}
 .sidebar__item{
 color: white;
 padding: 20px 10px;
