@@ -58,7 +58,7 @@ const Multiform = () => {
             return (
                 <>
                 <Form items={items} step={step}></Form>
-                <button className="form-step-next" onClick={changeStep}><img className="step-image" src="https://cdn-icons-png.flaticon.com/512/570/570221.png" alt="" /><p>Next Step</p></button>
+                <button className="form-step-next" onClick={changeStep}><img className="step-image" src="https://cdn-icons-png.flaticon.com/512/570/570221.png" alt="" /><p className="step-text">Next Step</p></button>
                 </>
 
             )
@@ -67,8 +67,8 @@ const Multiform = () => {
             return (
                 <>
                     <Form items={items} step={step}></Form>
-                    <button className="form-step-back" onClick={goBack}><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2985/premium/2985162.png?token=exp=1638484141~hmac=dad07c376c4945c9ee881c9e18016e40" alt="" /> <p>Go back</p></button>
-                    <button className="form-step-next" onClick={changeStep}><img className="step-image" src="https://cdn-icons-png.flaticon.com/512/570/570221.png" alt="" /><p>Next Step</p></button>
+                    <button className="form-step-back" onClick={goBack}><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2985/premium/2985162.png?token=exp=1638484141~hmac=dad07c376c4945c9ee881c9e18016e40" alt="" /> <p className="step-text">Go back</p></button>
+                    <button className="form-step-next" onClick={changeStep}><img className="step-image" src="https://cdn-icons-png.flaticon.com/512/570/570221.png" alt="" /><p className="step-text">Next Step</p></button>
                 </>
 
             )
@@ -76,7 +76,7 @@ const Multiform = () => {
             return (
                 <>
                     <Form items={items} step={step}></Form>
-                    <button className="form-step-back" onClick={goBack}><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2985/premium/2985162.png?token=exp=1638484141~hmac=dad07c376c4945c9ee881c9e18016e40" alt="" /> <p>Go back</p></button>
+                    <button className="form-step-back" onClick={goBack}><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2985/premium/2985162.png?token=exp=1638484141~hmac=dad07c376c4945c9ee881c9e18016e40" alt="" /> <p className="step-text">Go back</p></button>
                 </>
             )
         }

@@ -16,7 +16,6 @@
 
 .found-card{
     background-color: white;
-    border-radius:30px;
     text-align: center;
     margin: 30px 0;
     max-width:370px;
@@ -26,6 +25,4 @@
     object-fit: cover;
     max-width: 100%;
     margin:0;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px
 }

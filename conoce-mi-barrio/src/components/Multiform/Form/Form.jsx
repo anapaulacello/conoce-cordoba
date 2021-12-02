@@ -20,8 +20,10 @@ const Form = ({ items, step }) => {
 
         try {
             if(state.actions.length==0 || state.date==""){
-                throw new Error("tienes que rellenar los campons")
+                throw new Error("Tienes que rellenar los campos para guardar")
                 console.log("x")
+            }else{
+                window.alert("Se ha guardado tu día correctamente, ve a tu perfil para verlo 😃")
             }
            await createDay(state);
             setState(INITIAL_STATE);
@@ -82,7 +84,7 @@ const Form = ({ items, step }) => {
                         </div>
                     ))}
                     </label>
-                    <button className="submit-button" type="submit"><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2874/premium/2874091.png?token=exp=1638484281~hmac=ce3767895b51a4cf76017ccf46fe76b4" alt="" /> <p>Guardar</p> </button>           
+                    <button className="submit-button" type="submit"><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2874/premium/2874091.png?token=exp=1638484281~hmac=ce3767895b51a4cf76017ccf46fe76b4" alt="" /> <p className="step-text">Guardar</p> </button>           
                 
             </form>
         </>

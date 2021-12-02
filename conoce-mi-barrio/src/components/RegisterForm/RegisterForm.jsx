@@ -41,7 +41,7 @@ const RegisterForm = (props) => {
           onChange={handleInput}
           className="form-control" 
           id="floatingInput" 
-          placeholder="Name"/>
+          placeholder="Nombre"/>
           <input 
           type="email"
           name="email"
@@ -49,7 +49,7 @@ const RegisterForm = (props) => {
           onChange={handleInput}
           className="form-control" 
           id="floatingInput" 
-          placeholder="Email"/>
+          placeholder="Correo electrónico"/>
           <input 
           type="password"
           name="password"
@@ -57,8 +57,8 @@ const RegisterForm = (props) => {
           onChange={handleInput}
           className="form-control" 
           id="floatingInput" 
-          placeholder="Password"/>
-          <button className="register-button" type="submit">Register</button>
+          placeholder="Contraseña"/>
+          <button className="register-button" type="submit">Registrarme</button>
         {error && <div style={{ color: "red" }}>{error}</div>}
         </form>
       </div>

@@ -211,7 +211,7 @@ right: 20%;
     position: fixed;
     left: 20%;
     }
-p{
+.step-text{
     display: none;
 }
 }

@@ -19,16 +19,12 @@ margin: 40px 20px;
 box-shadow: 0 12px 24px rgba(165, 99, 69, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 min-height: 500px;
 padding: 0;
-border-radius: 30px;
 
 }
 .list-image{
 width: 350px;
 max-height: 250px;
 max-width: 100%;
-border-top-left-radius: 30px;
-border-top-right-radius: 30px;
-/*     margin: 15px 30px; */
 margin:0;
 }
 .list-image:hover{

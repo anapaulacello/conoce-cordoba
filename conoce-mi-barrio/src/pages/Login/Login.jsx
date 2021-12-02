@@ -5,7 +5,7 @@ const Login = () => {
  
   return (
     <div className="login-container">
-      <h3 className="login-container_title">Login</h3>
+      <h3 className="login-container_title">Iniciar sesión</h3>
       <LoginForm/>
     </div>
   );

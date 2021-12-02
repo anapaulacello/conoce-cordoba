@@ -34,16 +34,16 @@ const LoginForm = () => {
           className="login-input"
           type="email"
           name="email"
-          placeholder="E-mail" />
+          placeholder="Correo electrónico" />
         <input
           className="login-input"
           type="password"
           name="password"
-          placeholder="Password" />
-        <button className="login-button" type="submit">Login</button>
+          placeholder="Contraseña" />
+        <button className="login-button" type="submit">Iniciar sesión</button>
       </form>
       <Link to="/register" style={{ "text-decoration": "none" }}>
-          <p className="got-to-register">¿No tienes cuenta?</p>
+          <p className="got-to-register">¿No tienes cuenta? ¡Regístrate! </p>
       </Link>
     </div>
   );

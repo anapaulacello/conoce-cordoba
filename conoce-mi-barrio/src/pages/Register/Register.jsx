@@ -4,7 +4,7 @@ import "./Register.css"
 const Register = () => {
     return (
         <div className="register-container">
-        <h3 className="register-container_title">Register</h3>
+        <h3 className="register-container_title">Crea tu cuenta</h3>
             <RegisterForm/>
         </div>
     )
