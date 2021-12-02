@@ -43,6 +43,15 @@ const FindAction = () => {
                 <button className="btn btn-success "  
                 onClick={getData}>buscar</button>
             </div>
+            {found?(
+                <div className="found_card">
+                    <h1>{found.name}</h1>
+                    <img src={found.image} alt={found.name}/>
+                    <p>{found.adress}</p>
+                    <p>{found.hour}</p>
+                    <p>{found.actionEnum}</p>
+                </div>
+            ):null}
         </div>
     )
 }
