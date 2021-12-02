@@ -21,8 +21,8 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="logo">
-      <Link to="/" style={{ "text-decoration": "none" }}>
-            <a className="home-link">CONOCE CORDOBA</a>
+        <Link to="/" style={{ "text-decoration": "none" }}>
+          <a className="home-link">CONOCE CORDOBA</a>
         </Link>
       </div>
       <Burger />

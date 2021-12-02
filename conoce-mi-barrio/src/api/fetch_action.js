@@ -12,6 +12,5 @@ export const findAction = async(name) => {
   
     });
     const res = await getActionFetch.json();
-    console.log(res.body)
     return res;
   }

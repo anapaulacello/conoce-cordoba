@@ -4,19 +4,19 @@ import {findAction} from "../../api/fetch_action"
 const FindAction = () => {
     const [error, setError] = useState("");
     const [actionName, setActionName] = useState("");
-    const [found, setFound]=useState({
-        name:"",
-        image:"",
-        adress:"",
-        hour:"",
-        actionEnum:""
-    })
+    const [found, setFound]=useState([])
     const getData=async()=>{
         try {
-            const {data}=await findAction(actionName);
-            setFound(data.Action[0])
-            if(data){
-                console.log("datos de found",data)
+            if(actionName!=""){
+                console.log("actionname",actionName)
+                const {data}=await findAction(actionName);
+                if(data){
+                    setFound(data.Action)
+                    console.log("datos de data.Action",data.Action)
+                }
+            }else{
+                console.log("action name vacio")
+                setFound([])
             }
         } catch (error) {
             setError(error);
@@ -24,13 +24,14 @@ const FindAction = () => {
     }
     useEffect(async () => {
         getData();
-      }, []);
+      }, [actionName]);
     
     const handleInput = (e) => {
         const {value } = e.target;
         setActionName(value)
         console.log("handle input",value)
     };
+    console.log("datos de found",found)
     return (
         <div className="find-action-container">
             <div className="find-action_intput-button">
@@ -40,18 +41,21 @@ const FindAction = () => {
                 onChange={handleInput}
                 placeholder="nombre de action"
                 />
-                <button className="btn btn-success "  
-                onClick={getData}>buscar</button>
             </div>
-{/*             {found?(
-                <div className="found_card">
-                    <h1>{found.name}</h1>
-                    <img src={found.image} alt={found.name}/>
-                    <p>{found.adress}</p>
-                    <p>{found.hour}</p>
-                    <p>{found.actionEnum}</p>
+               {found!=[]?(
+                <>
+                {console.log(found)}
+                {found.map((element)=>
+                    <div className="found_card">
+                    <h1>{element.name}</h1>
+                    <img src={element.image} alt={element.name}/>
+                    <p>{element.adress}</p>
+                    <p>{element.hour}</p>
+                    <p>{element.actionEnum}</p>
                 </div>
-            ):null} */}
+                )}
+                </>
+            ):null}  
         </div>
     )
 }
