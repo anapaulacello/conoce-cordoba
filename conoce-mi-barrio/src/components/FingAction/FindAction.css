@@ -1,3 +1,7 @@
+.found-list-container{
+    padding: auto 0;
+    list-style: none;
+}
 .find-action-container{
     display:flex;
     flex-direction:column;
@@ -10,18 +14,18 @@
     margin-top: 50px;
 }
 
-.found-list-card{
+.found-card{
     background-color: white;
     border-radius:30px;
     text-align: center;
-    margin: 30px;
+    margin: 30px 0;
+    max-width:370px;
 }
 
 .found-list-image{
     object-fit: cover;
     max-width: 100%;
     margin:0;
-    max-width:380px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px
 }

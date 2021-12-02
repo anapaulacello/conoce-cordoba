@@ -44,7 +44,7 @@ const FindAction = () => {
                 placeholder="nombre de action"
                 />
             </div>
-            <ul className="List-container">
+            <ul className="found-list-container">
             {found!=[]?(
                 <>
                 {console.log(found)}
