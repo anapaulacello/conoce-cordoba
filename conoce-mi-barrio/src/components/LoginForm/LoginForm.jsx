@@ -43,7 +43,7 @@ const LoginForm = () => {
         <button className="login-button" type="submit">Login</button>
       </form>
       <Link to="/register" style={{ "text-decoration": "none" }}>
-          <p>¿No tienes cuenta?</p>
+          <p className="got-to-register">¿No tienes cuenta?</p>
       </Link>
     </div>
   );

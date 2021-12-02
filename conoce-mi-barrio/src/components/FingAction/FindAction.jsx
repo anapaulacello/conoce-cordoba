@@ -51,11 +51,11 @@ const FindAction = () => {
                 {found.map((element)=>
                     <li className="list-card" key={element.name}>
                         <div className="found_card">
-                            <h1>{element.name}</h1>
                             <img className="list-image" src={element.image} alt={element.name}/>
-                            <p>{element.adress}</p>
-                            <p>{element.hour}</p>
-                            <p>{element.actionEnum}</p>
+                            <h1 className="list-title">{element.name}</h1>
+                            <p  className="list-text">{element.adress}</p>
+                            <p  className="list-text">{element.hour}</p>
+                            <p  className="list-text">{element.actionEnum}</p>
                         </div>
                     </li>
                 )}

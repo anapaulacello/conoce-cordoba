@@ -21,8 +21,8 @@ function Home() {
 const {user}=useContext(UserContext);
     return (
         <motion.div className="home-container">
-          <FindAction></FindAction>
-            <motion.h1 className="home-container_title"
+        {user?<FindAction></FindAction>:null}
+        <motion.h1 className="home-container_title"
             variants={svgVariants}
             initial="hidden"
             animate="show"

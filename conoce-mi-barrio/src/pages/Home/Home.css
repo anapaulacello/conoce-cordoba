@@ -4,6 +4,7 @@
     background-size: cover;
     background-position: center;
     padding: 40px;
+    background-attachment: fixed;
 }
 .home-container_title{
     color:white;

@@ -22,17 +22,11 @@ function App() {
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
       {user?<Navbar></Navbar>:null}
-          
-  {/*       {user ? <p>Hola: {user}</p> : null} */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login}></Route>
             <Route path="/register" component={Register}></Route>
-            <Route path="/restaurants" component={Restaurant}></Route>
-            <Route path="/cultures" component={Culture}></Route>
-            <Route path="/discos" component={Disco}></Route>
-            <Route path="/about" component={About}></Route>
-{/*              <AuthRoute
+             <AuthRoute
               authenticated={authenticated}
               path="/about"
               render={(props) => <About user={user} {...props} />} 
@@ -51,7 +45,7 @@ function App() {
               authenticated={authenticated}
               path="/discos"
               render={(props) => <Disco user={user} {...props} />} 
-            ></AuthRoute>  */}
+            ></AuthRoute> 
             <AuthRoute
               authenticated={authenticated}
               path="/profile"
