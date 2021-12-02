@@ -1,5 +1,5 @@
 import React,{useState,useEffect}  from 'react'
-import {getActionByName} from "../../api/fetch_action"
+import {findAction} from "../../api/fetch_action"
 
 const FindAction = () => {
     const [error, setError] = useState("");
@@ -13,7 +13,7 @@ const FindAction = () => {
     })
     const getData=async()=>{
         try {
-            const {data}=await getActionByName(actionName);
+            const {data}=await findAction(actionName);
             setFound(data.Action[0])
             if(data){
                 console.log("datos de found",data)

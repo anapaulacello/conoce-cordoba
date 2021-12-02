@@ -1,7 +1,7 @@
-import {GET_ACTION_BY_NAME} from "./fetch_routes"
+import {FIND_ACTION} from "./fetch_routes"
 
-export const getActionByName = async(name) => {
-    const getActionFetch = await fetch(`${GET_ACTION_BY_NAME}${name}`, {
+export const findAction = async(name) => {
+    const getActionFetch = await fetch(`${FIND_ACTION}${name}`, {
       method: "GET",
       credentials: "include",
       headers: {

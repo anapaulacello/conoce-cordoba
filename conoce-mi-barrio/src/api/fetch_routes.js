@@ -1,6 +1,6 @@
 const BASE_URL=`https://backend-cordoba.vercel.app`
 
-const GET_ACTION_BY_NAME=`${BASE_URL}/action/name/`
+const FIND_ACTION=`${BASE_URL}/action/allAction/`
 
 const GET_RESTAURANTS=`${BASE_URL}/action/name/restaurant`
 const GET_DISCO=`${BASE_URL}/action/name/disco`
@@ -17,7 +17,7 @@ const DELETE_DAY_FROM_USER=`${BASE_URL}/day/user/day/delete`
 
 export {
     BASE_URL,
-    GET_ACTION_BY_NAME,
+    FIND_ACTION,
     
     GET_RESTAURANTS,
     GET_DISCO,

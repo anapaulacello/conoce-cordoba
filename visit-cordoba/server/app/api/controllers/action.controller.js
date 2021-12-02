@@ -70,7 +70,7 @@ const getActionByName=async (req,res,next)=>{
 const findAction=async (req,res,next)=>{
     try {
         const {name}=req.params;
-        const findAction=await Action.find({name:{$regex:name}})
+        const findAction=await Action.find({name:{ $regex: name, $options: 'i' }})
         console.log("find action",findAction)
         console.log("name",name)
         return res.json({
