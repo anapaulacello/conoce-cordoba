@@ -4,7 +4,7 @@ function About() {
     return (
         <div className="about-container">
             <div className="text-content">
-            <h1 className="about-maintitle">¡Bienvenidx a *nombre de la app*!</h1>
+            <h1 className="about-maintitle">¡Bienvenidx a Conoce Córdoba!</h1>
             <p className="about-text">
                 Este proyecto está desarrollado por un grupo de alumnos de bootcamp Full
                 Stack en Upgrade Hub. Nuestra propuesta es una página que permita a

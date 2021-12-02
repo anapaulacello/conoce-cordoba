@@ -3,6 +3,7 @@
     background-image:linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)),url("https://d1bvpoagx8hqbg.cloudfront.net/originals/erasmus-experience-cordoba-spain-elise-ace6369bf5161638d5396d1858744bc3.jpg");
     background-size: cover;
     min-height: 100vh;
+    background-attachment: fixed;
 }
 
 .profile-title{
