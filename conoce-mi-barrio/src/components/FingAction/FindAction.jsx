@@ -49,9 +49,9 @@ const FindAction = () => {
                 <>
                 {console.log(found)}
                 {found.map((element)=>
-                    <li className="list-card" key={element.name}>
-                        <div className="found_card">
-                            <img className="list-image" src={element.image} alt={element.name}/>
+                    <li className="found-list-card" key={element.name}>
+                        <div className="found-card">
+                            <img className="found-list-image" src={element.image} alt={element.name}/>
                             <h1 className="list-title">{element.name}</h1>
                             <p  className="list-text">{element.adress}</p>
                             <p  className="list-text">{element.hour}</p>
