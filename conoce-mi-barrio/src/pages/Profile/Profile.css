@@ -33,3 +33,7 @@
     justify-content: space-around;
     color:#9c6644da;
 }
+
+.accordion-item{
+    min-width: 300px !important;
+}

@@ -33,7 +33,7 @@ const Profile = () => {
       <p className="profile-text">Aquí puedes ver el itinerario que has seleccionado:</p>
       {/*       <h3>usuario: {user}</h3>
       <h3>email: {user.email}</h3> */}
-      <div className="accordion-accordion-flush" id="accordionFlushExample">
+      <div className="accordion-accordion-flush" id="accordionPanelsStayOpenExample">
         {itinerary.map((element) => (
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingOne">

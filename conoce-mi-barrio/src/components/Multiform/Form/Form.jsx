@@ -15,15 +15,19 @@ const Form = ({ items, step }) => {
     const submitForm = async (ev) => {
         ev.preventDefault();
         setError("");
-        console.log(JSON.stringify(state));
+        console.log(state);
         /* localStorage.setItem(`FormData`, JSON.stringify(state)); */
 
         try {
-            await createDay(state);
+            if(state.actions.length==0 || state.date==""){
+                throw new Error("tienes que rellenar los campons")
+                console.log("x")
+            }
+           await createDay(state);
             setState(INITIAL_STATE);
             setError("");
         } catch (error) {
-            setError(error.message);
+            alert(error.message);
         }
     };
 
@@ -34,8 +38,12 @@ const Form = ({ items, step }) => {
     };
     const handleInput = (ev) => {
         const { value } = ev.target;
-        setState({ ...state, actions: [...state.actions, value] });
-        console.log(state);
+        if(!state.actions.includes(value)){
+            setState({ ...state, actions: [...state.actions, value] });
+            console.log(state);
+        }else{
+           state.actions.splice(state.actions.indexOf(value),1)
+        }
     };
 
     return (
