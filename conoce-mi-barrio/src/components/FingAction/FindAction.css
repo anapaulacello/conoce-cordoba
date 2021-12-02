@@ -1,3 +1,15 @@
+.find-action-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
 .list-card{
     background-color: white;
+}
+
+.find-input{
+    min-width:50%;
+    margin-top: 60px;
 }

@@ -21,12 +21,13 @@ function App() {
     <div>
       <Router>
       <UserContext.Provider value={{user,saveUser}}>
-        <Navbar></Navbar>
-        
+      {user?<Navbar></Navbar>:null}
+          
   {/*       {user ? <p>Hola: {user}</p> : null} */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
             <Route path="/restaurants" component={Restaurant}></Route>
             <Route path="/cultures" component={Culture}></Route>
             <Route path="/discos" component={Disco}></Route>

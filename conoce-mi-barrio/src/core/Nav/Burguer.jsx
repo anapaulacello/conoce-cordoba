@@ -85,22 +85,22 @@ const Burger = () => {
         <div />
       </StyledBurger>
       <Ul className="sidebar" open={open}>
-        {user==null? (
+        {user? (
           <Link to="/">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>INICIO</a>
           </Link>
         ) : null}
-        {user==null? (
+        {user? (
           <Link to="/restaurants">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>RESTAURANTES</a>
           </Link>
         ) : null}
-        {user==null  ? (
+        {user ? (
           <Link to="/cultures">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>CULTURA</a>
           </Link>
         ) : null}
-        {user==null  ? (
+        {user? (
           <Link to="/discos">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>PUBS/DISCOS</a>
           </Link>
@@ -115,7 +115,7 @@ const Burger = () => {
             <a className="sidebar__item" onClick={() => setOpen(!open)}>PERFIL</a>
           </Link>
         ) : null}
-        {user==null  ? (
+        {user? (
           <Link to="/about">
             <a className="sidebar__item" onClick={() => setOpen(!open)}>SOBRE NOSOTROS</a>
           </Link>
