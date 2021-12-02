@@ -43,7 +43,7 @@ const FindAction = () => {
                 <button className="btn btn-success "  
                 onClick={getData}>buscar</button>
             </div>
-            {found?(
+{/*             {found?(
                 <div className="found_card">
                     <h1>{found.name}</h1>
                     <img src={found.image} alt={found.name}/>
@@ -51,7 +51,7 @@ const FindAction = () => {
                     <p>{found.hour}</p>
                     <p>{found.actionEnum}</p>
                 </div>
-            ):null}
+            ):null} */}
         </div>
     )
 }

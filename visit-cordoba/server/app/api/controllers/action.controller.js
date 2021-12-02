@@ -54,9 +54,6 @@ const getActionById = async (req, res, next) => {
     }
 }
 
-
-
-
 const getActionByName=async (req,res,next)=>{
     try {
         const {actionName}=req.params;
@@ -70,4 +67,19 @@ const getActionByName=async (req,res,next)=>{
         return next(error)
     }
 }
-module.exports = { createAction,getAllAction,getActionById,getActionByName};
+const findAction=async (req,res,next)=>{
+    try {
+        const {name}=req.params;
+        const findAction=await Action.find({name:{$regex:name}})
+        console.log("find action",findAction)
+        console.log("name",name)
+        return res.json({
+            status: 200,
+            message: HTTPSTATUSCODE[200],
+            data: { Action: findAction }
+        })
+    } catch (error) {
+        return next(error)
+    }
+}
+module.exports = { createAction,getAllAction,getActionById,getActionByName,findAction};
