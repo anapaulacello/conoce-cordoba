@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./Home.css"
 import {motion} from 'framer-motion';
 import { UserContext } from '../../App';
+import FindAction from '../../components/FingAction/FindAction';
 
 const svgVariants = {
   hidden: { x: "-100vw" },
@@ -20,6 +21,7 @@ function Home() {
 const {user}=useContext(UserContext);
     return (
         <motion.div className="home-container">
+          <FindAction></FindAction>
             <motion.h1 className="home-container_title"
             variants={svgVariants}
             initial="hidden"
