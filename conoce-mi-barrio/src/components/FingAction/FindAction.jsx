@@ -14,7 +14,7 @@ const FindAction = () => {
     const getData=async()=>{
         try {
             const {data}=await getActionByName(actionName);
-            setFound(data)
+            setFound(data.Action[0])
             if(data){
                 console.log("datos de found",data)
             }
