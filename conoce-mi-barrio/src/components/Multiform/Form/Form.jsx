@@ -92,7 +92,7 @@ const Form = ({ items, step }) => {
                         </div>
                     ))}
                     </label>
-                    <button className="submit-button" type="submit"><img className="step-image" src="https://cdn-icons.flaticon.com/png/512/2874/premium/2874091.png?token=exp=1638484281~hmac=ce3767895b51a4cf76017ccf46fe76b4" alt="" /> <p className="step-text">Guardar</p> </button>           
+                    <button className="submit-button" type="submit"><img className="step-image" src="https://cdn-icons-png.flaticon.com/512/482/482459.png" alt="" /> <p className="step-text">Guardar</p> </button>           
                 
             </form>
         </>
