@@ -11,7 +11,7 @@ function About() {
                 cualquier usuario elegir cómo quiere pasar su día en la ciudad que
                 quiere visitar. En este caso, la ciudad que hemos elegido es Córdoba.</p>
             <h2 className="about-title">¿Cómo surgió esta idea?</h2>
-            <p className="about-text">*Nombre de la app* nos pareció una herramienta muy útil para todo aquel
+            <p className="about-text">Conoce Córdoba nos pareció una herramienta muy útil para todo aquel
                 que quiera visitar una nueva ciudad y quiera tener su día organizado.
                 Como uno de nuestros miembros es de Córdoba, decidimos centrarnos en
                 este destino.</p>

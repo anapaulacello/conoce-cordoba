@@ -3,7 +3,8 @@ import { useState } from "react";
 import { createDay } from "../../../api/fetch_day";
 import DatePicker from "react-datepicker";
 import './Form.css';
-import AddCorrectlyAlert from "../../Alerts/AddCorrectlyAlert";
+import Swal from 'sweetalert2';
+
 
 const INITIAL_STATE = { date: "", actions: [] };
 
@@ -20,10 +21,17 @@ const Form = ({ items, step }) => {
 
         try {
             if(state.actions.length==0 || state.date==""){
-                throw new Error("Tienes que rellenar los campos para guardar")
-                console.log("x")
+                Swal.fire(
+                    'Oops!',
+                    'Tienes que elegir una fecha',
+                    'error'
+                  )
             }else{
-                window.alert("Se ha guardado tu día correctamente, ve a tu perfil para verlo 😃")
+                Swal.fire(
+                    '¡Guardado!',
+                    'Ve a tu perfil para ver tu itinerario 😃📅',
+                    'success'
+                  )
             }
            await createDay(state);
             setState(INITIAL_STATE);

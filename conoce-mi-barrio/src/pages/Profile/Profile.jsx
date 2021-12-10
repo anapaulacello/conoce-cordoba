@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../App";
 import { deleteDayFromUser, getDayFromUser } from "../../api/fetch_day";
-import './Profile.css'
+import './Profile.css';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 const Profile = () => {
   const [error, setError] = useState(null);
@@ -61,7 +62,25 @@ const Profile = () => {
             <div className="trash-container">
               <a
                 onClick={() => {
-                  deleteDay(element._id);
+                  Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "¿Quieres borrar este día?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Borrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire(
+                        '¡Borrado!',
+                        'Se ha borrado el día',
+                        'success',
+                        deleteDay(element._id),
+                      )
+                    }
+                  })
+                  
                 }}
               >
                 <img className="papelera" src="https://img.icons8.com/bubbles/500/delete.png" alt="papelera" />
